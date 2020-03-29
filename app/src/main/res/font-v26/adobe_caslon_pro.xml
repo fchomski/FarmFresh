@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:font="@font/acaslonpro_bold"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
+    <font
+        android:font="@font/acaslonpro_bolditalic"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
+    <font
+        android:font="@font/acaslonpro_italic"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
+    <font
+        android:font="@font/acaslonpro_regular"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
+    <font
+        android:font="@font/acaslonpro_semibold"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
+    <font
+        android:font="@font/acaslonpro_semibolditalic"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
+</font-family>
