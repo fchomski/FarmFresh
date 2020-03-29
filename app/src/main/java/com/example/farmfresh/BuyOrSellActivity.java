@@ -21,6 +21,6 @@ public class BuyOrSellActivity extends AppCompatActivity {
         startActivity(new Intent(BuyOrSellActivity.this, SignUpBuyers.class));
     }
     public void selling(View v) {
-
+        startActivity(new Intent(BuyOrSellActivity.this, SignUpSellers.class));
     }
 }
