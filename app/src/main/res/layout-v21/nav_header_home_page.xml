@@ -13,14 +13,8 @@
     android:backgroundTint="#8FCC80"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <TextView
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/nav_header_title"
-        android:textSize="16pt"
-        android:fontFamily="@font/acaslonpro_bold"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-
+        android:src="@drawable/logo"/>
 </LinearLayout>

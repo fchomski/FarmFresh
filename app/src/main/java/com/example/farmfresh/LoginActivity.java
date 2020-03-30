@@ -20,7 +20,9 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginValidate(View v) {
-
+        //TODO: Validate inputs
+        //Go to homepage
+        startActivity(new Intent(LoginActivity.this, HomePage.class));
     }
     public void back(View v) {
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
