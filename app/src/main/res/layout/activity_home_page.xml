@@ -8,6 +8,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!--TODO: See if able to make rounded corners on menu drawer-->
     <include
         layout="@layout/app_bar_home_page"
         android:layout_width="match_parent"

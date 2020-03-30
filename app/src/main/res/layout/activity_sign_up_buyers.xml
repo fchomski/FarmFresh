@@ -161,6 +161,7 @@
         app:layout_constraintTop_toBottomOf="@+id/passwordValidate"
         app:layout_constraintVertical_bias="0.049" />
 
+    <!--TODO: Make button have rounded corners-->
     <Button
         android:id="@+id/signUpValidate"
         android:layout_width="400px"
