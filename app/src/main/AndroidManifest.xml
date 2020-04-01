@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".Help"></activity>
         <activity android:name=".Apples" />
         <activity android:name=".Category_Fruit" />
         <activity android:name=".SignUpSellers" />
@@ -28,6 +27,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.profile.ProfileFragment" />
+        <!--Key to access google maps API-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDKDXiFrcotxXy8S0h2hTGHKlurTUNiJ2A"/>
     </application>
-
 </manifest>
