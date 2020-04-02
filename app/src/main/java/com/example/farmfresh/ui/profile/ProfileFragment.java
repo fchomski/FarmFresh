@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.example.farmfresh.R;
+import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.State;
+import com.example.farmfresh.model.data.UserType;
+
+import java.io.BufferedReader;
 
 public class ProfileFragment extends Fragment {
 
@@ -30,6 +36,30 @@ public class ProfileFragment extends Fragment {
 //                textView.setText(s);
 //            }
 //        });
+        State s = State.getInstance();
+
+        TextView userNameText = (TextView) root.findViewById(R.id.userName);
+        userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+
+        Button changePwdBtn = (Button) root.findViewById(R.id.changePwdBtn);
+        Button pushItemBtn = (Button) root.findViewById(R.id.pushItemBtn);
+        Button paymentDtlBtn = (Button) root.findViewById(R.id.paymentDtlsBtn);
+
+        changePwdBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+            }
+        });
+
+        // set the visibility of button based on user type.
+        if (s.getUserType() == UserType.BUYER) {
+            pushItemBtn.setVisibility(View.INVISIBLE);
+            paymentDtlBtn.setVisibility(View.VISIBLE);
+        } else {
+            pushItemBtn.setVisibility(View.VISIBLE);
+            paymentDtlBtn.setVisibility(View.INVISIBLE);
+        }
         return root;
     }
 }
