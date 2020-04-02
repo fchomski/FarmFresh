@@ -3,12 +3,10 @@ package com.example.farmfresh;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -21,19 +19,21 @@ import com.example.farmfresh.model.data.UserType;
 
 import org.json.JSONException;
 
-import java.io.IOException;
-
-public class SignUpBuyers extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
     EditText etFullName;
     EditText etUName;
     EditText etPass;
     EditText etPass2;
     Spinner sLocation;
+    Intent prevIntent;
+    String mode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_buyers);
+        setContentView(R.layout.activity_sign_up);
+        prevIntent = getIntent();
+        mode = prevIntent.getStringExtra("mode");
 
         //Replace characters entered in password and re-enter password fields with asterisks
         etPass = findViewById(R.id.password);
@@ -47,7 +47,7 @@ public class SignUpBuyers extends AppCompatActivity {
     }
 
     public void back(View v) {
-        startActivity(new Intent(SignUpBuyers.this, BuyOrSellActivity.class));
+        startActivity(new Intent(SignUp.this, BuyOrSellActivity.class));
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -87,18 +87,18 @@ public class SignUpBuyers extends AppCompatActivity {
             User newuser = new User();
             newuser.put(Key.User.USER_NAME, username);
             newuser.put(Key.User.USER_PASSWORD, password);
-            newuser.put(Key.User.USER_TYPE, UserType.BUYER);
+            newuser.put(Key.User.USER_TYPE, mode.equals("seller") ? UserType.SELLER: UserType.BUYER);
             try {
                 // add new user.
                 Connect c = new Connect(getApplicationContext());
                 c.add(newuser, User.class);
                 c.sync();
             } catch (JSONException e) {
-                startActivity(new Intent(SignUpBuyers.this, MainActivity.class));
+                startActivity(new Intent(SignUp.this, MainActivity.class));
                 e.printStackTrace();
             }
 
-            startActivity(new Intent(SignUpBuyers.this, HomePage.class));
+            startActivity(new Intent(SignUp.this, HomePage.class));
         }
         //Make toast with appropriate message
         Toast toast = Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT);
