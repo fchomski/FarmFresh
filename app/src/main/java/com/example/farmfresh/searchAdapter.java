@@ -13,13 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class searchAdapter<searchItemViewHoder> extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class searchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     private LayoutInflater mLayoutInflater;
     private Context mname;
     private List<product> mDatas;
     private TextView name;
     private TextView price;
     private ImageView img;
+    private OnItemClickListener mOnItemClickListener;
 
 
     public searchAdapter(Context m,List<product> result){
@@ -40,30 +44,61 @@ public class searchAdapter<searchItemViewHoder> extends RecyclerView.Adapter<Rec
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         product pro=mDatas.get(position);
-        String c=pro.getCategory();
+
         int price=pro.getPrice();
         String name=pro.getName();
         ((searchItemViewHolder) holder).mimg.setImageResource(R.drawable.watermelon);
         ((searchItemViewHolder) holder).name.setText(name);
-        ((searchItemViewHolder) holder).price.setText(price);
+        ((searchItemViewHolder) holder).price.setText("$"+ price);
+        if (mOnItemClickListener != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onItemClick(holder.itemView, position);
+                }
+            });
+        }
+
+        // item long click
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                mOnItemClickListener.onItemLongClick(holder.itemView, position);
+                return true;
+            }
+        });
+
     }
 
     @Override
     public int getItemCount() {
         return mDatas.size();
     }
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
+        void onItemLongClick(View view, int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mOnItemClickListener = listener;
+    }
+
+
+
 
 
     static class searchItemViewHolder extends RecyclerView.ViewHolder{
-        private ImageView mimg;
-        private TextView name;
-        private TextView price;
+        @BindView(R.id.img_pic)
+        ImageView mimg;
+        @BindView(R.id.pname)
+        TextView name;
+        @BindView(R.id.pprice)
+        TextView price;
 
         public searchItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            mimg.findViewById(R.id.img);
-            name.findViewById(R.id.pname);
-            price.findViewById(R.id.pprice);
+
+            ButterKnife.bind(this,itemView);
+
 
 
         }

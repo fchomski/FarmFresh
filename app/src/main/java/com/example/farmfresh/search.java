@@ -2,6 +2,7 @@ package com.example.farmfresh;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import com.example.farmfresh.data.PProducts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -49,6 +51,26 @@ public class search extends AppCompatActivity {
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         productList=findViewById(R.id.list);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        productList.setLayoutManager(linearLayoutManager);
+        adap=new searchAdapter(this,products);
+        productList.setAdapter(adap);
+
+        adap.setOnItemClickListener(new searchAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent it=new Intent(search.this,singleproduct.class);
+                startActivity(it);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
+
+
+
 
 
 
@@ -74,6 +96,27 @@ public class search extends AppCompatActivity {
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
+                Cursor cursor = TextUtils.isEmpty(s) ? null : searchData(s);
+                List<String> name=new ArrayList<>();
+                try{
+
+               while( cursor.moveToNext()){
+                name.add(cursor.getString(cursor.getColumnIndex("name")));
+                Log.e("CSDN_LQR", "querySql = " );
+               }
+
+
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+
+                for(int i=0;i<name.size();i++){
+                products.add(new product(name.get(i),null,5,null));
+                    Log.e("name1: ", name.get(i) );
+                }
+
+
+
                 return false;
             }
 
