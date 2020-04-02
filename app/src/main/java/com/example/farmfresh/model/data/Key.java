@@ -1,5 +1,9 @@
 package com.example.farmfresh.model.data;
 
+/* Some enum Keys to access HashMap record
+   Only access record from Key here since it provides type checking rather than
+   arbitrary strings.
+ */
 public class Key {
     public enum Coordinate { LNG, LAT }
 
