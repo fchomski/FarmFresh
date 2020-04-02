@@ -98,7 +98,7 @@ public class SignUp extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            startActivity(new Intent(SignUp.this, HomePage.class));
+            startActivity(new Intent(SignUp.this, LoginActivity.class));
         }
         //Make toast with appropriate message
         Toast toast = Toast.makeText(this, toastMessage, Toast.LENGTH_SHORT);

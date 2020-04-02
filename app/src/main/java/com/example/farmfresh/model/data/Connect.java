@@ -102,8 +102,8 @@ public class Connect {
     /*
         Usage:
             new Connect.add(new User().fromJson("{...}"))
-            invalid json data will throw a JSONException.
-            Catch in where it is used and handle accordingly
+        invalid json data will throw a JSONException.
+        Catch in where it is used and handle accordingly
      */
     public <T extends  Jsonable> void add(T ele, Class<T> cls) throws JSONException {
         String dataType = getJsonArryPropertyName(cls);

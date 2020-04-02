@@ -22,12 +22,13 @@ public class Item extends HashMap<Key.Item, Object> implements Jsonable<Item> {
     public JSONObject toJson() throws JSONException {
         JSONObject obj = new JSONObject();
         Base64.Encoder encoder = getEncoder();
+        obj.put("sellerName", this.get(Key.Item.SELLER_NAME));
         obj.put("itemName", this.get(Key.Item.ITEM_NAME));
         obj.put("price", this.get(Key.Item.PRICE));
         obj.put("quantity", this.get(Key.Item.QUANTITY));
 
         String base64 = encoder.encodeToString((byte[]) this.get(IMAGE_BASE64));
-        obj.put("image_base64", base64);
+        obj.put("imageBase64", base64);
         return obj;
     }
 
@@ -35,10 +36,11 @@ public class Item extends HashMap<Key.Item, Object> implements Jsonable<Item> {
     @Override
     public Item fromJson(JSONObject json) throws JSONException {
         Base64.Decoder decoder = getDecoder();
+        this.put(Key.Item.SELLER_NAME, (String) json.get("sellerName"));
         this.put(Key.Item.ITEM_NAME, (String) json.get("itemName"));
         this.put(Key.Item.PRICE, (String) json.get("quantity"));
         this.put(Key.Item.QUANTITY, (String) json.get("price"));
-        this.put(IMAGE_BASE64, decoder.decode((String) json.get("image_base64")));
+        this.put(IMAGE_BASE64, decoder.decode((String) json.get("imageBase64")));
         return this;
     }
 }

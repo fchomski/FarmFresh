@@ -15,6 +15,7 @@ public class Key {
     }
 
     public enum Item {
+        SELLER_NAME,  // same as user name.
         ITEM_NAME,
         PRICE,
         QUANTITY,
