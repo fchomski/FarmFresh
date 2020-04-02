@@ -24,14 +24,18 @@ import java.util.HashMap;
 
 /* Data connection APIs.
    All data will be accessed from here.
+   This class read from data.json and parse it into `jsonData` : JSONObject.
+   The JSONObject is in memory for each run, it get modified dumped into file
+   with sync()
+   For this app jsonData will only contains two `JSONArray`, namely "user" and "item"
  */
-
 public class Connect {
-    private static String path = "data.json";  // TODO: change this.
+    private static String path = "data.json";
     private JSONObject jsonData;
     private Context context;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    // Pass an Application context to access the android resources.
     public Connect(Context context) throws JSONException {
         this.context = context;
         try {
@@ -40,7 +44,7 @@ public class Connect {
             BufferedReader reader = new BufferedReader(inreader);
 
             String line;
-            String raw = reader.readLine();
+            String raw = reader.readLine();  // local file will always be one line.
 
             System.out.println(raw);
             if (raw == null) {
@@ -56,18 +60,22 @@ public class Connect {
             e.printStackTrace();
         }
 
-        System.out.println("---------------------->");
         System.out.println(this.jsonData);
     }
 
+    /* Deprecated. */
     public void close() {
         this.sync();
     }
 
     /* search by key
+       It will return a list of filter result. All result are Jsonable Haspmap defined in Item and User classes.
+       Note, the callback can be replaced by a regular function object.
        usage:
-            new Connect.filter("userName", (e) -> e =="Bob", User.class);
-            new Connect.filter("price", (e) -> e > 200 && e < 500, Item.class);
+            new Connect.filter("userName", (e) -> e.equals("Bob"), User.class).get(<idx>).get(<Key>);
+            new Connect.filter("price", (e) -> e > 200 && e < 500, Item.class).get(<idx>).get(<Key>);;
+        Note: The method level JSONException should never trigger because it handles the defaultJsonData(),
+        which is always valid JSONObject.
      */
     public <T extends HashMap & Jsonable> ArrayList<T>
     filter(Enum key, Function<Object, Boolean> predicate, Class<T> cls) throws JSONException, InstantiationException, IllegalAccessException {
@@ -77,13 +85,11 @@ public class Connect {
         JSONArray jarray = this.jsonData.getJSONArray(dataType);
         for (int i = 0; i < jarray.length(); ++i) {
             JSONObject obj = jarray.getJSONObject(i);
-            System.out.println(":>> " + obj.toString());
             T data = cls.newInstance();
             data.fromJson(obj);
+
             Object ele = data.get(key);
             assert ele != null;
-            System.out.println("=>> " + ele.toString());
-
 
             if (predicate.apply(ele)) {
                 res.add(data);
@@ -91,10 +97,11 @@ public class Connect {
         }
         return res;
     }
-
     /*
         Usage:
-            if (new Connect.add(new User().fromJson("{...}"))) {...}
+            new Connect.add(new User().fromJson("{...}"))
+            invalid json data will throw a JSONException.
+            Catch in where it is used and handle accordingly
      */
     public <T extends  Jsonable> void add(T ele, Class<T> cls) throws JSONException {
         String dataType = getJsonArryPropertyName(cls);
