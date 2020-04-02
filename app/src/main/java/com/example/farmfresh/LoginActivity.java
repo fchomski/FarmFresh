@@ -54,8 +54,6 @@ public class LoginActivity extends AppCompatActivity {
             ArrayList<User> res = c.filter(Key.User.USER_NAME, new Function<Object, Boolean>() {
                 @Override
                 public Boolean apply(Object e) {
-                    System.out.println("::" + e.toString());
-                    System.out.println("::" + etUsername.getText().toString());
                     return e.toString().equals(etUsername.getText().toString());
                 }
             }, User.class);
@@ -66,7 +64,6 @@ public class LoginActivity extends AppCompatActivity {
                 for (i = 0; i < res.size(); ++i) {
                     String username = (String) res.get(i).get(Key.User.USER_NAME);
                     String upw = (String) res.get(i).get(Key.User.USER_PASSWORD);
-
                     if (Objects.equals(username, etUsername.getText().toString()) &&
                             Objects.equals(upw, etPassword.getText().toString())) {
                         startActivity(new Intent(LoginActivity.this, HomePage.class));

@@ -78,7 +78,9 @@ public class Connect {
         which is always valid JSONObject.
      */
     public <T extends HashMap & Jsonable> ArrayList<T>
-    filter(Enum key, Function<Object, Boolean> predicate, Class<T> cls) throws JSONException, InstantiationException, IllegalAccessException {
+    filter(Enum key,
+           Function<Object, Boolean> predicate,
+           Class<T> cls) throws JSONException, InstantiationException, IllegalAccessException {
         ArrayList<T> res = new ArrayList<>();
         String dataType = getJsonArryPropertyName(cls);
 

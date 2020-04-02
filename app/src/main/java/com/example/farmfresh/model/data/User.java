@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 //TODO : need a location to coordinate table to show correct map.
 
+
 public class User extends HashMap<Key.User, Object> implements Jsonable<User> {
     @Override
     public JSONObject toJson() throws JSONException {
