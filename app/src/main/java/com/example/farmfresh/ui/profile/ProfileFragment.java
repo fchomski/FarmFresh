@@ -34,12 +34,14 @@ public class ProfileFragment extends Fragment {
 //        });
         State s = State.getInstance();
 
-        //Display user's selected username
         TextView userNameText = root.findViewById(R.id.userName);
+        TextView usernameFull = root.findViewById(R.id.userFullName);
+        TextView location = root.findViewById(R.id.lTN);
+      
+        //Display user's selected username
         userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
 
         //TODO: Change this to user's full name rather than username
-        TextView usernameFull = root.findViewById(R.id.userFullName);
         usernameFull.setText((String) s.getUser().get(Key.User.USER_NAME));
 
         //TODO: Set user's location to entered value, not default
@@ -47,6 +49,10 @@ public class ProfileFragment extends Fragment {
         Button changePwdBtn = (Button) root.findViewById(R.id.changePwdBtn);
         Button pushItemBtn = (Button) root.findViewById(R.id.pushItemBtn);
         Button paymentDtlBtn = (Button) root.findViewById(R.id.paymentDtlsBtn);
+
+        userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+        userFullNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+        // TODO set location Text.
 
         changePwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +62,7 @@ public class ProfileFragment extends Fragment {
         });
 
         // set the visibility of button based on user type.
+        System.out.println(s.getUser());
         if (s.getUserType() == UserType.BUYER) {
             pushItemBtn.setVisibility(View.INVISIBLE);
             paymentDtlBtn.setVisibility(View.VISIBLE);
