@@ -77,9 +77,13 @@ public class Connect {
         JSONArray jarray = this.jsonData.getJSONArray(dataType);
         for (int i = 0; i < jarray.length(); ++i) {
             JSONObject obj = jarray.getJSONObject(i);
+            System.out.println(":>> " + obj.toString());
             T data = cls.newInstance();
             data.fromJson(obj);
             Object ele = data.get(key);
+            assert ele != null;
+            System.out.println("=>> " + ele.toString());
+
 
             if (predicate.apply(ele)) {
                 res.add(data);
