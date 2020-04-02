@@ -1,0 +1,262 @@
+[
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\menu_home_page.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\menu\\home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font_acaslonpro_italic.otf.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font\\acaslonpro_italic.otf"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_home_page.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\content_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_clothing.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\clothing.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_gallery.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v21\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font_acaslonpro_semibolditalic.otf.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font\\acaslonpro_semibolditalic.otf"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable_back_arrow.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable\\back_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_app_bar_home_page.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\app_bar_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_activity_category__fruit.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout-v21\\activity_category__fruit.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_help.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_home_page.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font-v26_adobe_caslon_pro.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font-v26\\adobe_caslon_pro.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_category__fruit.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_category__fruit.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable_apple.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable\\apple.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_protein.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\protein.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font_acaslonpro_bold.otf.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font\\acaslonpro_bold.otf"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_search.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\fragment_search.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_grain.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\grain.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_veggie.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\veggie.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header_home_page.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\nav_header_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_plant.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\plant.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font_acaslonpro_regular.otf.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font\\acaslonpro_regular.otf"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up_sellers.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_sign_up_sellers.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_cake.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\cake.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_orange.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\orange.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font_acaslonpro_semibold.otf.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font\\acaslonpro_semibold.otf"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font_adobe_caslon_pro.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font\\adobe_caslon_pro.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_dairy.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\dairy.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_apples.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_apples.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_jewelry.jpg.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\jewelry.jpg"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_camera.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v21\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_profileimg.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v24\\profileimg.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_profile.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\fragment_profile.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\font_acaslonpro_bolditalic.otf.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\font\\acaslonpro_bolditalic.otf"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_slideshow.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable-v21\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher_background.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_launcher_background.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\menu_activity_home_page_drawer.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\menu\\activity_home_page_drawer.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_nav_header_home_page.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout-v21\\nav_header_home_page.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sign_up_buyers.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_sign_up_buyers.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_buy_or_sell.xml.flat",
+        "source": "C:\\Users\\fchom\\Documents\\GitHub\\FarmFresh\\app\\src\\main\\res\\layout\\activity_buy_or_sell.xml"
+    }
+]

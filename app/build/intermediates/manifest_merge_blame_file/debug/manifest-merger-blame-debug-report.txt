@@ -1,0 +1,131 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.farmfresh"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml
+10    <!-- Include required permissions for Google Maps API to run. -->
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+11-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+12-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:22-64
+13
+14    <uses-feature
+14-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+15        android:glEsVersion="0x00020000"
+15-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+16        android:required="true" />
+16-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+17
+18    <application
+18-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:5:5-34:19
+19        android:allowBackup="true"
+19-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:6:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.1.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\1cd7eff88f5e86d0249af2958bf465f0\core-1.1.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:7:9-43
+23        android:label="@string/app_name"
+23-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:8:9-41
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:9:9-54
+25        android:supportsRtl="true"
+25-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:10:9-35
+26        android:testOnly="true"
+27        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+27-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:11:9-65
+28        <activity android:name="com.example.farmfresh.Apples" />
+28-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:12:9-44
+28-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:12:19-41
+29        <activity android:name="com.example.farmfresh.Category_Fruit" />
+29-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:13:9-52
+29-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:13:19-49
+30        <activity android:name="com.example.farmfresh.SignUpSellers" />
+30-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:14:9-51
+30-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:14:19-48
+31        <activity
+31-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:15:9-18:50
+32            android:name="com.example.farmfresh.HomePage"
+32-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:16:13-37
+33            android:label="@string/title_activity_home_page"
+33-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:17:13-61
+34            android:theme="@style/NoActionBar" />
+34-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:18:13-47
+35        <activity android:name="com.example.farmfresh.SignUpBuyers" />
+35-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:19:9-50
+35-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:19:19-47
+36        <activity android:name="com.example.farmfresh.BuyOrSellActivity" />
+36-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:20:9-55
+36-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:20:19-52
+37        <activity android:name="com.example.farmfresh.LoginActivity" />
+37-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:21:9-51
+37-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:21:19-48
+38        <activity android:name="com.example.farmfresh.MainActivity" >
+38-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:22:9-28:20
+38-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:22:19-47
+39            <intent-filter>
+39-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:23:13-27:29
+40                <action android:name="android.intent.action.MAIN" />
+40-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:24:17-69
+40-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:24:25-66
+41
+42                <category android:name="android.intent.category.LAUNCHER" />
+42-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:26:17-77
+42-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:26:27-74
+43            </intent-filter>
+44        </activity>
+45        <activity android:name="com.example.farmfresh.ui.profile.ProfileFragment" />
+45-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:29:9-64
+45-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:29:19-61
+46        <!-- Key to access google maps API -->
+47        <meta-data
+47-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:31:9-33:70
+48            android:name="com.google.android.geo.API_KEY"
+48-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:32:13-58
+49            android:value="AIzaSyDKDXiFrcotxXy8S0h2hTGHKlurTUNiJ2A" />
+49-->C:\Users\fchom\Documents\GitHub\FarmFresh\app\src\main\AndroidManifest.xml:33:13-68
+50        <!-- Needs to be explicitly declared on P+ -->
+51        <uses-library
+51-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+52            android:name="org.apache.http.legacy"
+52-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+53            android:required="false" />
+53-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\edb03ed300512ae8da7c146a103a6c79\jetified-play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+54
+55        <activity
+55-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+56            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+56-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+57            android:exported="false"
+57-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+58            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+58-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\6fb3f6cd2b75dfe7dd10f87d94351f9e\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+59
+60        <meta-data
+60-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\c39f27975e2128f358c90a3c3f9b8fee\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+61            android:name="com.google.android.gms.version"
+61-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\c39f27975e2128f358c90a3c3f9b8fee\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+62            android:value="@integer/google_play_services_version" />
+62-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\c39f27975e2128f358c90a3c3f9b8fee\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+63
+64        <provider
+64-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\133d3390c58c70ac7467dd72c7251bfe\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+65            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+65-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\133d3390c58c70ac7467dd72c7251bfe\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+66            android:authorities="com.example.farmfresh.lifecycle-process"
+66-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\133d3390c58c70ac7467dd72c7251bfe\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+67            android:exported="false"
+67-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\133d3390c58c70ac7467dd72c7251bfe\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+68            android:multiprocess="true" />
+68-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\fchom\.gradle\caches\transforms-2\files-2.1\133d3390c58c70ac7467dd72c7251bfe\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+69    </application>
+70
+71</manifest>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8FCC80"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:fontFamily="@font/acaslonpro_semibold"
+        android:text="Welcome"
+        android:textColor="#3A3A3A"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.245"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.205"/>
+
+    <TextView
+        android:id="@+id/uName"
+        android:fontFamily="@font/acaslonpro_semibold"
+        android:textColor="#3A3A3A"
+        android:textSize="30sp"
+        android:layout_width="120dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="385dp"
+        android:layout_height="136dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:ignore="ButtonStyle">
+            <Button
+                android:id="@+id/fruitsBtn"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/orange"
+                android:layout_marginRight="10px"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.112"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="512dp"/>
+
+            <Button
+                android:id="@+id/veggiesBtn"
+                android:layout_width="125dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/veggie"
+                android:layout_marginRight="10px"
+                tools:layout_editor_absoluteX="129dp"
+                tools:layout_editor_absoluteY="512dp" />
+
+            <Button
+                android:id="@+id/proteinBtn"
+                android:layout_width="139dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/protein"
+                android:layout_marginRight="10px"/>
+
+            <Button
+                android:id="@+id/dairyBtn"
+                android:layout_width="140dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/dairy"
+                android:layout_marginRight="10px"
+                tools:layout_editor_absoluteX="69dp"
+                tools:layout_editor_absoluteY="355dp" />
+
+            <Button
+                android:id="@+id/grainBtn"
+                android:layout_width="99dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/grain"
+                android:layout_marginRight="10px"
+                tools:layout_editor_absoluteX="106dp"
+                tools:layout_editor_absoluteY="344dp" />
+
+            <Button
+                android:id="@+id/sweetsBtn"
+                android:layout_width="156dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/cake"
+                android:layout_marginRight="10px"
+                tools:layout_editor_absoluteX="85dp"
+                tools:layout_editor_absoluteY="351dp" />
+
+            <Button
+                android:id="@+id/plantsBtn"
+                android:layout_width="144dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10px"
+                android:background="@drawable/plant" />
+
+            <Button
+                android:id="@+id/jewelryBtn"
+                android:layout_width="145dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/jewelry"
+                android:layout_marginRight="10px"/>
+
+            <Button
+                android:id="@+id/clothingBtn"
+                android:layout_width="97dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/clothing"
+                android:layout_marginRight="10px" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="398dp"
+        android:layout_height="285dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent">
+    </fragment>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
