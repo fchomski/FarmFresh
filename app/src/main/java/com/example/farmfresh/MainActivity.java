@@ -9,18 +9,27 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
+    private Button ca;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button=findViewById(R.id.button);
+        button=findViewById(R.id.search);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent it=new Intent(MainActivity.this,search.class);
                 startActivity(it);
 
+            }
+        });
+        ca=findViewById(R.id.category);
+        ca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it=new Intent(MainActivity.this,categorypage.class);
+                startActivity(it);
             }
         });
     }

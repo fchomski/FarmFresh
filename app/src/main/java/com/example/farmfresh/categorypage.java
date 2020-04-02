@@ -1,7 +1,8 @@
 package com.example.farmfresh;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -10,65 +11,51 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.SearchView;
+import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.farmfresh.data.PProducts;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-
-public class search extends AppCompatActivity {
-
-    private SearchView mSearchView;
+public class categorypage extends AppCompatActivity {
+    private GridView gridView;
+    private List<Map<String, Object>> data_list;
     private androidx.appcompat.widget.SearchView.SearchAutoComplete mSearchAutoComplete;
+    private SimpleAdapter adapter;
     private Toolbar toolbar;
     private List<product> products=new ArrayList<product>();
-    private RecyclerView productList;
-    private searchAdapter adap;
-
-
-
-
-
+    private SearchView mSearchView;
+    private int[] icons={R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon};
+    private String[] text={"Fruit","Veggies","Protein","Dairy","Sweets","Grains","Plants","Others"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
-
+        setContentView(R.layout.activity_categorypage);
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        productList=findViewById(R.id.list);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        productList.setLayoutManager(linearLayoutManager);
-        adap=new searchAdapter(this,products);
-        productList.setAdapter(adap);
+        gridView = (GridView) findViewById(R.id.gridView);
+        data_list = new ArrayList<Map<String, Object>>();
+        getData();
 
-        adap.setOnItemClickListener(new searchAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                Intent it=new Intent(search.this,singleproduct.class);
-                startActivity(it);
-            }
+        String[] form = {"image", "text"};
+        int[] to = {R.id.image, R.id.text};
+        adapter = new SimpleAdapter(this, data_list, R.layout.grid_item, form, to);
+        gridView.setAdapter(adapter);
 
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemLongClick(View view, int position) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
             }
         });
-
-
-
-
-
-
-
 
     }
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -83,7 +70,7 @@ public class search extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    finish();
+                finish();
 
             }
         });
@@ -94,10 +81,10 @@ public class search extends AppCompatActivity {
                 List<String> name=new ArrayList<>();
                 try{
 
-               while( cursor.moveToNext()){
-                name.add(cursor.getString(cursor.getColumnIndex("name")));
-                Log.e("CSDN_LQR", "querySql = " );
-               }
+                    while( cursor.moveToNext()){
+                        name.add(cursor.getString(cursor.getColumnIndex("name")));
+                        Log.e("CSDN_LQR", "querySql = " );
+                    }
 
 
                 }catch(Exception e){
@@ -105,7 +92,7 @@ public class search extends AppCompatActivity {
                 }
 
                 for(int i=0;i<name.size();i++){
-                products.add(new product(name.get(i),null,5,null));
+                    products.add(new product(name.get(i),null,5,null));
                     Log.e("name1: ", name.get(i) );
                 }
 
@@ -119,7 +106,7 @@ public class search extends AppCompatActivity {
                 Cursor cursor = TextUtils.isEmpty(s) ? null : searchData(s);
 
                 if (mSearchView.getSuggestionsAdapter() == null) {
-                    SimpleCursorAdapter ss=new SimpleCursorAdapter(search.this, R.layout.item_layout, cursor, new String[]{"name"}, new int[]{R.id.text1},1);
+                    SimpleCursorAdapter ss=new SimpleCursorAdapter(categorypage.this, R.layout.item_layout, cursor, new String[]{"name"}, new int[]{R.id.text1},1);
 
                     mSearchView.setSuggestionsAdapter(ss);
                 } else {
@@ -130,16 +117,19 @@ public class search extends AppCompatActivity {
                 return false;
             }
         });
-
-
-
-
-
-
-
         return super.onCreateOptionsMenu(menu);
-    }
 
+}
+    public List<Map<String, Object>>  getData(){
+
+        for (int i = 0; i < icons.length; i++) {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("image", icons[i]);
+            map.put("text", text[i]);
+            data_list.add(map);
+        }
+        return data_list;
+    }
     private Cursor searchData(String key) {
         SQLiteDatabase db = SQLiteDatabase.openOrCreateDatabase(getFilesDir() + "product.db", null);
         Cursor cursor = null;
@@ -165,21 +155,4 @@ public class search extends AppCompatActivity {
         }
         return cursor;
 
-    }
-
-
-
-
-
-
-
-
-}
-
-
-
-
-
-
-
-
+    }}

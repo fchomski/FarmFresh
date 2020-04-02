@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".singleproduct"></activity>
+
+        <activity android:name=".singleproduct" />
         <activity android:name=".SignUpSellers" />
         <activity
             android:name=".HomePage"
@@ -27,6 +28,10 @@
         </activity>
         <activity
             android:name=".search"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".categorypage"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar2" />
     </application>
