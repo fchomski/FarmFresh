@@ -1,9 +1,9 @@
 package com.example.farmfresh.model.data;
 
+import android.content.Context;
 import android.os.Build;
-import android.os.FileUtils;
-import android.util.JsonReader;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.arch.core.util.Function;
 
@@ -11,14 +11,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Array;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
 /* Data connection APIs.
@@ -26,48 +27,105 @@ import java.util.HashMap;
  */
 
 public class Connect {
-    private static String path = "data.json";
+    private static String path = "data.json";  // TODO: change this.
     private JSONObject jsonData;
+    private Context context;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    Connect(String path) throws IOException, JSONException {
-        this.jsonData = fromJson(path);
+    public Connect(Context context) throws JSONException {
+        this.context = context;
+        try {
+            FileInputStream in = context.openFileInput(path);
+            InputStreamReader inreader = new InputStreamReader(in);
+            BufferedReader reader = new BufferedReader(inreader);
+
+            String line;
+            String raw = reader.readLine();
+
+            System.out.println(raw);
+            if (raw == null) {
+                this.jsonData = defaultJsondata();
+            } else {
+                this.jsonData = new JSONObject((String)raw);
+            }
+
+        } catch (FileNotFoundException | JSONException e) {
+            e.printStackTrace();
+            this.jsonData = defaultJsondata();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("---------------------->");
+        System.out.println(this.jsonData);
+    }
+
+    public void close() {
+        this.sync();
     }
 
     /* search by key
        usage:
-            new Connect.filter<User>("userName", (e) -> e =="Bob", User.class);
-            new Connect.filter<Item>("price", (e) -> e > 200 && e < 500, Item.class);
+            new Connect.filter("userName", (e) -> e =="Bob", User.class);
+            new Connect.filter("price", (e) -> e > 200 && e < 500, Item.class);
      */
-    public <T extends Jsonable> ArrayList<T>
-    filter(String key, Function<Object, Boolean> predicate, Class<T> cls) throws JSONException {
-        String dataType;
-        ArrayList<T> res = null;
-
-        if (cls == Item.class) dataType = "item";
-        else if (cls == User.class) dataType = "user";
-        else return  null;
+    public <T extends HashMap & Jsonable> ArrayList<T>
+    filter(Enum key, Function<Object, Boolean> predicate, Class<T> cls) throws JSONException, InstantiationException, IllegalAccessException {
+        ArrayList<T> res = new ArrayList<>();
+        String dataType = getJsonArryPropertyName(cls);
 
         JSONArray jarray = this.jsonData.getJSONArray(dataType);
         for (int i = 0; i < jarray.length(); ++i) {
             JSONObject obj = jarray.getJSONObject(i);
+            T data = cls.newInstance();
+            data.fromJson(obj);
+            Object ele = data.get(key);
 
-            if (predicate.apply(obj.get(key))) {
-                try {
-                    T e;
-                    e = cls.newInstance();
-                    res.add(e);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InstantiationException e) {
-                    e.printStackTrace();
-                }
+            if (predicate.apply(ele)) {
+                res.add(data);
             }
         }
         return res;
     }
 
-    // TODO: insert()
+    /*
+        Usage:
+            if (new Connect.add(new User().fromJson("{...}"))) {...}
+     */
+    public <T extends  Jsonable> void add(T ele, Class<T> cls) throws JSONException {
+        String dataType = getJsonArryPropertyName(cls);
+
+        assert dataType != null;
+        JSONArray jarry = this.jsonData.getJSONArray(dataType);
+        try {
+            jarry.put(ele.toJson());
+            this.jsonData.put(dataType, jarry);
+        } catch (JSONException e) {
+            System.err.println("add failed, can't get property type from JSON file");
+            e.printStackTrace();
+        }
+    }
+
+    // write change into file.
+    public void sync() {
+        String jstring = this.jsonData.toString();
+        FileOutputStream out;
+        try {
+            out = context.openFileOutput(path, Context.MODE_PRIVATE);
+            out.write(jstring.getBytes());
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private <T extends Jsonable> String getJsonArryPropertyName(Class<T> cls) {
+        if (cls == Item.class) return  "item";
+        else if (cls == User.class) return  "user";
+        return null;
+    }
 
     /* Json reader. there will be one json file as our database.
        Json Format:
@@ -81,5 +139,12 @@ public class Connect {
     private JSONObject fromJson(String path) throws JSONException, IOException {
         String content = new String(Files.readAllBytes(Paths.get(path)));
         return new JSONObject(content);
+    }
+
+    private JSONObject defaultJsondata() throws JSONException {
+        JSONObject obj = new JSONObject();
+        obj.put("user", new JSONArray());
+        obj.put("item", new JSONArray());
+        return obj;
     }
 }
