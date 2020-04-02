@@ -39,11 +39,16 @@ public class ProfileFragment extends Fragment {
         State s = State.getInstance();
 
         TextView userNameText = (TextView) root.findViewById(R.id.userName);
-        userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+        TextView userFullNameText = (TextView) root.findViewById(R.id.userFullName);
+        TextView LocationText = (TextView) root.findViewById(R.id.locationText);
 
         Button changePwdBtn = (Button) root.findViewById(R.id.changePwdBtn);
         Button pushItemBtn = (Button) root.findViewById(R.id.pushItemBtn);
         Button paymentDtlBtn = (Button) root.findViewById(R.id.paymentDtlsBtn);
+
+        userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+        userFullNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+        // TODO set location Text.
 
         changePwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +58,7 @@ public class ProfileFragment extends Fragment {
         });
 
         // set the visibility of button based on user type.
+        System.out.println(s.getUser());
         if (s.getUserType() == UserType.BUYER) {
             pushItemBtn.setVisibility(View.INVISIBLE);
             paymentDtlBtn.setVisibility(View.VISIBLE);
