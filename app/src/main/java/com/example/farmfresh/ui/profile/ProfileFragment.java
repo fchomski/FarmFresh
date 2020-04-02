@@ -25,18 +25,12 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
-//        final TextView textView = root.findViewById(R.id.text_home);
-//        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-//            @Override
-//            public void onChanged(@Nullable String s) {
-//                textView.setText(s);
-//            }
-//        });
+
         State s = State.getInstance();
 
         TextView userNameText = root.findViewById(R.id.userName);
         TextView usernameFull = root.findViewById(R.id.userFullName);
-        TextView location = root.findViewById(R.id.lTN);
+        TextView location = root.findViewById(R.id.locationText);
       
         //Display user's selected username
         userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
@@ -49,10 +43,6 @@ public class ProfileFragment extends Fragment {
         Button changePwdBtn = (Button) root.findViewById(R.id.changePwdBtn);
         Button pushItemBtn = (Button) root.findViewById(R.id.pushItemBtn);
         Button paymentDtlBtn = (Button) root.findViewById(R.id.paymentDtlsBtn);
-
-        userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
-        userFullNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
-        // TODO set location Text.
 
         changePwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
