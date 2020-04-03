@@ -35,6 +35,9 @@ public class searchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         mDatas.add(msg);
         notifyDataSetChanged();
     }
+    public String getName(int position){
+        return mDatas.get(position).getName();
+    }
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view=mLayoutInflater.inflate(R.layout.item_layout2,parent,false);

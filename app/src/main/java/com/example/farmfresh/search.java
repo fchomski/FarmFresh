@@ -12,13 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmfresh.data.PProducts;
+import com.example.farmfresh.ui.search.SingleItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,8 @@ public class search extends AppCompatActivity {
     private List<product> products=new ArrayList<product>();
     private RecyclerView productList;
     private searchAdapter adap;
+    private TextView price;
+    private TextView pname;
 
 
 
@@ -45,15 +50,20 @@ public class search extends AppCompatActivity {
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         productList=findViewById(R.id.list);
+        price=findViewById(R.id.pprice);
+        pname=findViewById(R.id.pname);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         productList.setLayoutManager(linearLayoutManager);
         adap=new searchAdapter(this,products);
         productList.setAdapter(adap);
 
+
         adap.setOnItemClickListener(new searchAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent it=new Intent(search.this,singleproduct.class);
+                Intent it=new Intent(search.this, SingleItem.class);
+                it.putExtra("item", adap.getName(position));
+
                 startActivity(it);
             }
 
@@ -83,7 +93,7 @@ public class search extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    finish();
+                finish();
 
             }
         });

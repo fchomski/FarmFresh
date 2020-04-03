@@ -37,4 +37,8 @@
     <string name="menu_help">Help</string>
 
     <string name="home_second">Home Second</string>
+    <string name="item_name">Item Name:</string>
+    <string name="item_price">Item Price:</string>
+    <string name="seller">Seller:</string>
+    <string name="card_item_image">card item Image</string>
 </resources>

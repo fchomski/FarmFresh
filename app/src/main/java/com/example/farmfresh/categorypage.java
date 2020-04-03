@@ -33,7 +33,7 @@ public class categorypage extends AppCompatActivity {
     private Toolbar toolbar;
     private List<product> products=new ArrayList<product>();
     private SearchView mSearchView;
-    private int[] icons={R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon,R.drawable.watermelon};
+    private int[] icons={R.drawable.watermelon,R.drawable.vegetable,R.drawable.protein,R.drawable.dairy,R.drawable.sweets,R.drawable.grains,R.drawable.plant,R.drawable.clothing};
     private String[] text={"Fruit","Veggies","Protein","Dairy","Sweets","Grains","Plants","Others"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
