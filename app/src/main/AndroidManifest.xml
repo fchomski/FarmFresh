@@ -40,7 +40,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.profile.ProfileFragment" />
+        <activity android:name=".ui.profile.Cart" />
         <activity android:name=".ui.search.SingleItem" />
     </application>
+
 
 </manifest>

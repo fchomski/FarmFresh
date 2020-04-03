@@ -20,7 +20,7 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_profile, container, false);
+        final View root = inflater.inflate(R.layout.fragment_profile, container, false);
 
         State s = State.getInstance();
 
@@ -40,11 +40,19 @@ public class ProfileFragment extends Fragment {
         Button changePwdBtn = (Button) root.findViewById(R.id.changePwdBtn);
         Button pushItemBtn = (Button) root.findViewById(R.id.pushItemBtn);
         Button paymentDtlBtn = (Button) root.findViewById(R.id.paymentDtlsBtn);
+        Button toCartBtn = (Button) root.findViewById(R.id.toCartBtn);
 
         changePwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO
+            }
+        });
+        toCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View e) {
+                Intent intent = new Intent(getContext(), Cart.class);
+                getContext().startActivity(intent);
             }
         });
 

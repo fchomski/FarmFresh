@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmfresh.R;
+import com.example.farmfresh.model.adaptor.ItemCardAdaptor;
 import com.example.farmfresh.model.data.Connect;
 import com.example.farmfresh.model.data.Item;
 import com.example.farmfresh.model.data.Key;

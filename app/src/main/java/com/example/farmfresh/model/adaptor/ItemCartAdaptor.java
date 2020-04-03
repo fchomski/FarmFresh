@@ -1,11 +1,9 @@
-package com.example.farmfresh.ui.search;
+package com.example.farmfresh.model.adaptor;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Build;
-import android.text.style.UpdateLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,20 +17,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Item;
 import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.ui.search.SingleItem;
 
 import org.json.JSONException;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 
-public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceHolder> {
+public class ItemCartAdaptor extends RecyclerView.Adapter<ItemCartAdaptor.PlaceHolder> {
     private Context context;
     private ArrayList<Item> items;
 
-    public ItemCardAdaptor(Context context, ArrayList<Item> items) {
+    public ItemCartAdaptor(Context context, ArrayList<Item> items) {
         this.context = context;
         this.items = items;
     }
@@ -40,7 +37,7 @@ public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceH
     @NonNull
     @Override
     public PlaceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_card, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.cart_item, parent, false);
         return new PlaceHolder(view);
     }
 
@@ -63,10 +60,10 @@ public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceH
 
         PlaceHolder(@NonNull View itemView) {
             super(itemView);
-            itemName = itemView.findViewById(R.id.cardItemName);
-            itemPrice = itemView.findViewById(R.id.cardItemPrice);
-            itemSeller = itemView.findViewById(R.id.cardItemSeller);
-            itemImage = itemView.findViewById(R.id.cardItemImage);
+            itemName = itemView.findViewById(R.id.cartItemName);
+            itemPrice = itemView.findViewById(R.id.cartItemPrice);
+            itemSeller = itemView.findViewById(R.id.cartItemSeller);
+            itemImage = itemView.findViewById(R.id.cartItemImage);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.O)
