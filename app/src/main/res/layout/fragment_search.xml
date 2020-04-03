@@ -26,7 +26,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="290dp"
                 android:layout_height="match_parent"
-                android:hint="hint" />
+                android:fontFamily="@font/acaslonpro_regular"
+                android:hint="Search for items here" />
 
             <Button
                 android:id="@+id/searchBtn"
