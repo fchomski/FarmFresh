@@ -1,6 +1,9 @@
 package com.example.farmfresh.model.data;
 
 import android.content.Context;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,8 +56,12 @@ public class DataModel {
     }
 
     // write change into file.
-    void sync(Context context, String path) {
-        String jsonString = this.jsonData.toString();
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    void sync(Context context, String path) throws JSONException {
+        jsonData = new JSONObject();
+        jsonData.put("user", toJsonArray(users));
+        jsonData.put("item", toJsonArray(items));
+        String jsonString = jsonData.toString();
         FileOutputStream out;
         try {
             out = context.openFileOutput(path, Context.MODE_PRIVATE);
@@ -92,5 +99,13 @@ public class DataModel {
         if (cls == Item.class) return  "item";
         else if (cls == User.class) return  "user";
         return null;
+    }
+
+    private <T extends Jsonable> JSONArray toJsonArray(ArrayList<T> list) throws JSONException {
+        JSONArray jsonArray = new JSONArray();
+        for (T e : list) {
+            jsonArray.put(e.toJson());
+        }
+        return jsonArray;
     }
 }
