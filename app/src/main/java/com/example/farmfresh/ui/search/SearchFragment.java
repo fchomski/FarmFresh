@@ -1,5 +1,6 @@
 package com.example.farmfresh.ui.search;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,11 +17,13 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.farmfresh.MainActivity;
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.adaptor.ItemCardAdaptor;
 import com.example.farmfresh.model.data.Connect;
 import com.example.farmfresh.model.data.Item;
 import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.search;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
@@ -46,6 +49,13 @@ public class SearchFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_search, container, false);
         searchBtn = (Button) root.findViewById(R.id.searchBtn);
         searchText = root.findViewById(R.id.searchText);
+        searchText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it=new Intent(getActivity(), search.class);
+                startActivity(it);
+            }
+        });
 
         // search result
         searchBtn.setOnClickListener(new View.OnClickListener() {

@@ -21,9 +21,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+
+        <activity android:name=".singleproduct" />
+
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDujkmmbZvHYwspccKtwxv6_Oz4B_dY9Do"/>
+
         <activity
             android:name=".HomePage"
             android:label="@string/title_activity_home_page"
@@ -39,9 +45,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".search"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".categorypage"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/AppTheme.NoActionBar2" />
+
         <activity android:name=".ui.profile.ProfileFragment" />
         <activity android:name=".ui.profile.Cart" />
         <activity android:name=".ui.search.SingleItem" />
+
     </application>
 
 

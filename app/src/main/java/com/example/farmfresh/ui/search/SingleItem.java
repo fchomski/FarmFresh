@@ -89,8 +89,8 @@ public class SingleItem extends FragmentActivity {
         itemQuantity.setText((String) item.get(Key.Item.QUANTITY));
 
         String base64Image = (String) item.get(Key.Item.IMAGE_BASE64);
-        byte[] byteArray = base64ImgToByteArray(base64Image);
-                itemImage.setImageBitmap(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length));
+//        byte[] byteArray = base64ImgToByteArray(base64Image);
+//                itemImage.setImageBitmap(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length));
 
     }
 

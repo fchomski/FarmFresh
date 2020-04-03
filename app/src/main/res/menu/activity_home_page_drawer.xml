@@ -13,6 +13,9 @@
             android:id="@+id/nav_profile"
             android:title="@string/menu_profile" />
         <item
+            android:id="@+id/nav_category"
+            android:title="Category" />
+        <item
             android:id="@+id/nav_search"
             android:title="@string/menu_search" />
         <item
