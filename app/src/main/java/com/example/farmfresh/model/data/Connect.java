@@ -1,6 +1,7 @@
 package com.example.farmfresh.model.data;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 import android.provider.ContactsContract;
 import android.view.textclassifier.TextClassifierEvent;
@@ -8,6 +9,8 @@ import android.view.textclassifier.TextClassifierEvent;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.arch.core.util.Function;
+
+import com.example.farmfresh.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -25,6 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static com.example.farmfresh.model.data.DataModel.getJsonArrayPropertyName;
+
 
 /* Data connection APIs.
    All data will be accessed from here.
@@ -72,6 +77,7 @@ public class Connect {
     }
 
     /* Deprecated. */
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void close() {
         this.sync();
     }
@@ -154,10 +160,19 @@ public class Connect {
         return new JSONObject(content);
     }
 
-    private JSONObject defaultJsondata() throws JSONException {
-        JSONObject obj = new JSONObject();
-        obj.put("user", new JSONArray());
-        obj.put("item", new JSONArray());
-        return obj;
+    private JSONObject defaultJsondata() throws JSONException{
+        InputStream data = context.getResources().openRawResource(R.raw.data);
+        JSONObject res = new JSONObject();
+        res.put("user", new ArrayList<>());
+        res.put("item", new ArrayList<>());
+        try {
+
+            String str = new BufferedReader(new InputStreamReader(data)).readLine();
+            res = new JSONObject(str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return res;
+
     }
 }

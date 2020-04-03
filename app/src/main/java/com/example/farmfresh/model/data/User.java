@@ -21,7 +21,7 @@ public class User extends HashMap<Key.User, Object> implements Jsonable<User> {
         JSONObject obj = new JSONObject();
         obj.put("userName", (String) this.get(Key.User.USER_NAME));
         obj.put("userPassword", (String) this.get(Key.User.USER_PASSWORD));
-        obj.put("userType", Objects.equals(this.get(Key.User.USER_TYPE), "SELLER") ? UserType.SELLER : UserType.BUYER);
+        obj.put("userType", this.get(Key.User.USER_TYPE) == UserType.BUYER ? "BUYER" : "SELLER");
         Coordinate userLocation = (Coordinate) this.get(Key.User.USER_LOCATION);
         if (userLocation != null) obj.put("userLocation", userLocation.toJson());
         return obj;
@@ -31,7 +31,7 @@ public class User extends HashMap<Key.User, Object> implements Jsonable<User> {
     public User fromJson(JSONObject json) throws JSONException {
         this.put(Key.User.USER_NAME, (String) json.get("userName"));
         this.put(Key.User.USER_PASSWORD, (String) json.get("userPassword"));
-        this.put(Key.User.USER_TYPE, json.get("userType"));
+        this.put(Key.User.USER_TYPE, json.get("userType").equals("BUYER") ? UserType.BUYER : UserType.SELLER);
         try {
             JSONObject coordinate = json.getJSONObject("userLocation");
             this.put(Key.User.USER_LOCATION ,(new Coordinate()).fromJson(coordinate));
