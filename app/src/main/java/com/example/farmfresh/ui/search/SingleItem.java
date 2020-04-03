@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -17,6 +18,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Item;
 import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.State;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,6 +32,7 @@ public class SingleItem extends FragmentActivity {
 
     private Intent intent;
     private Item item;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -49,9 +52,25 @@ public class SingleItem extends FragmentActivity {
         }
 
         final Button back = (Button) findViewById(R.id.single_backBtn);
+        final Button addCartBtn = (Button) findViewById(R.id.single_addToCartBtn);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View e) {
+                finish();
+            }
+        });
+        addCartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View e) {
+                State s = State.getInstance();
+                Toast toast;
+                String toasterMsg;
+                s.getCart().add(item);
+                System.out.println("add to cart");
+                System.out.println(s.getCart().toString());
+                toasterMsg = "added into cart";
+                toast = Toast.makeText(e.getContext(), toasterMsg, Toast.LENGTH_SHORT);
+                toast.setMargin(50, 50);
                 finish();
             }
         });
@@ -72,7 +91,6 @@ public class SingleItem extends FragmentActivity {
         String base64Image = (String) item.get(Key.Item.IMAGE_BASE64);
         byte[] byteArray = base64ImgToByteArray(base64Image);
                 itemImage.setImageBitmap(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length));
-
 
     }
 
