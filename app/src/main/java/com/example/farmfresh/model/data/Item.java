@@ -26,21 +26,18 @@ public class Item extends HashMap<Key.Item, Object> implements Jsonable<Item> {
         obj.put("itemName", this.get(Key.Item.ITEM_NAME));
         obj.put("price", this.get(Key.Item.PRICE));
         obj.put("quantity", this.get(Key.Item.QUANTITY));
-
-        String base64 = encoder.encodeToString((byte[]) this.get(IMAGE_BASE64));
-        obj.put("imageBase64", base64);
+        obj.put("imageBase64", this.get(IMAGE_BASE64));
         return obj;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public Item fromJson(JSONObject json) throws JSONException {
-        Base64.Decoder decoder = getDecoder();
         this.put(Key.Item.SELLER_NAME, (String) json.get("sellerName"));
         this.put(Key.Item.ITEM_NAME, (String) json.get("itemName"));
         this.put(Key.Item.PRICE, (String) json.get("quantity"));
         this.put(Key.Item.QUANTITY, (String) json.get("price"));
-        this.put(IMAGE_BASE64, decoder.decode((String) json.get("imageBase64")));
+        this.put(IMAGE_BASE64, (String) json.get("imageBase64"));
         return this;
     }
 }

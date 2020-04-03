@@ -1,11 +1,11 @@
-package com.example.farmfresh.ui.additem;
+package com.example.farmfresh.ui.profile;
+
 
 import androidx.annotation.RequiresApi;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.fragment.app.FragmentActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -15,19 +15,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
-import android.sax.TextElementListener;
-import android.view.LayoutInflater;
+import android.renderscript.ScriptGroup;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.farmfresh.R;
@@ -35,21 +30,18 @@ import com.example.farmfresh.model.data.Connect;
 import com.example.farmfresh.model.data.Item;
 import com.example.farmfresh.model.data.Key;
 import com.example.farmfresh.model.data.State;
-import com.example.farmfresh.model.data.User;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOError;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Base64;
 
 
-public class AddItem extends Fragment {
-
-    private AddItemViewModel mViewModel;
-
-    public static AddItem newInstance() {
-        return new AddItem();
-    }
+public class AddItem extends FragmentActivity {
 
     private static final int GALLERY_REQUEST_CODE = 100;
 
@@ -60,18 +52,18 @@ public class AddItem extends Fragment {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.add_item_activity);
         State s = State.getInstance();
-        final View root = inflater.inflate(R.layout.add_item_fragment, container, false);
 
         final String username = (String) s.getUser().get(Key.User.USER_NAME);
 
-        final TextInputEditText itemNameText = (TextInputEditText) root.findViewById(R.id.itemName);
-        final TextInputEditText priceText = (TextInputEditText) root.findViewById(R.id.price);
-        final TextInputEditText quantityText = (TextInputEditText) root.findViewById(R.id.quantity);
-        Button imgSelectBtn = (Button) root.findViewById(R.id.imageSelectBtn);
-        Button addItemBtn = (Button) root.findViewById(R.id.addItemBtn);
+        final TextInputEditText itemNameText = (TextInputEditText) findViewById(R.id.itemName);
+        final TextInputEditText priceText = (TextInputEditText) findViewById(R.id.price);
+        final TextInputEditText quantityText = (TextInputEditText) findViewById(R.id.quantity);
+        Button imgSelectBtn = (Button) findViewById(R.id.imageSelectBtn);
+        Button addItemBtn = (Button) findViewById(R.id.addItemBtn);
 
         imgSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,25 +81,26 @@ public class AddItem extends Fragment {
             @Override
             public void onClick(View e) {
                 // don't use not null contract since we need it for deciding whether show toaster or not.
-                itemName    = itemNameText.getText().toString();
-                price       = priceText.getText().toString();
-                quantity    = quantityText.getText().toString();
+                itemName = itemNameText.getText().toString();
+                price = priceText.getText().toString();
+                quantity = quantityText.getText().toString();
 
                 try {
-                    Connect c = new Connect(root.getContext());
+                    Connect c = new Connect(AddItem.this);
                     Item newItem = new Item();
                     newItem.put(Key.Item.SELLER_NAME, username);
-                    if (itemName    != null &&
-                        price       != null &&
-                        quantity    != null &&
-                        imageBase64 != null) {
+                    if (itemName != null && price != null && quantity != null && imageBase64 != null) {
                         newItem.put(Key.Item.ITEM_NAME, itemName);
                         newItem.put(Key.Item.PRICE, price);
                         newItem.put(Key.Item.QUANTITY, quantity);
                         newItem.put(Key.Item.IMAGE_BASE64, imageBase64);
+                        System.out.println(newItem.toJson());
+                        c.add(newItem, Item.class);
+                        c.sync();
+                        finish();
                     } else {
                         String toasterMsg = "invalid input, try again";
-                        Toast toast = Toast.makeText(root.getContext(), toasterMsg, Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(AddItem.this, toasterMsg, Toast.LENGTH_SHORT);
                         toast.setMargin(50, 50);
                         toast.show();
                     }
@@ -116,14 +109,6 @@ public class AddItem extends Fragment {
                 }
             }
         });
-        return root;
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(AddItemViewModel.class);
-        // TODO: Use the ViewModel
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -131,36 +116,44 @@ public class AddItem extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        Context context = getContext();
         Base64.Encoder encoder = Base64.getEncoder();
+        byte[] byteArray;
+
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == GALLERY_REQUEST_CODE) {
                 Uri selectedImage = data.getData();
-                String[] filePathColumn = { MediaStore.Images.Media.DATA };
-                assert selectedImage != null;
-                assert context != null;
+                try {
+                    assert selectedImage != null;
+                    // Uri -> byteArray -> base64 String
+                    InputStream is = getContentResolver().openInputStream(selectedImage);
+                    byteArray = getBytes(is);
+                    imageBase64 = encoder.encodeToString(byteArray);
+                    System.out.println(imageBase64);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
-                @SuppressLint("Recycle") Cursor cursor =
-                        context.getContentResolver()
-                               .query(selectedImage,
-                                      filePathColumn,
-                                      null, null, null);
+                // change image View
+                ImageView itemImageView = (ImageView) findViewById(R.id.itemImage);
+                itemImageView.setImageURI(selectedImage);
 
-                assert cursor != null;
-                cursor.moveToFirst();
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                String imgDecodableString = cursor.getString(columnIndex);
-                cursor.close();
-
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                BitmapFactory
-                        .decodeFile(imgDecodableString)
-                        .compress(Bitmap.CompressFormat.PNG, 100, stream);
-                byte[] byteArray = stream.toByteArray();
-                imageBase64 = encoder.encodeToString(byteArray);
             }
         }
 
+    }
+
+    private byte[] getBytes(InputStream is) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        int buffersz = 1024;
+        byte[] buffer = new byte[buffersz];
+
+        int len = 0;
+        while ((len = is.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return  byteBuffer.toByteArray();
     }
 
 }

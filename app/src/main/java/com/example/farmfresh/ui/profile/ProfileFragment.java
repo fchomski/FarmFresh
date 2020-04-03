@@ -1,6 +1,6 @@
 package com.example.farmfresh.ui.profile;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,16 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Key;
 import com.example.farmfresh.model.data.State;
 import com.example.farmfresh.model.data.UserType;
-
-import java.io.BufferedReader;
 
 public class ProfileFragment extends Fragment {
 
@@ -33,6 +29,7 @@ public class ProfileFragment extends Fragment {
         TextView location = root.findViewById(R.id.locationText);
       
         //Display user's selected username
+        System.out.println(s.getUser());
         userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
 
         //TODO: Change this to user's full name rather than username
@@ -60,6 +57,14 @@ public class ProfileFragment extends Fragment {
             pushItemBtn.setVisibility(View.VISIBLE);
             paymentDtlBtn.setVisibility(View.INVISIBLE);
         }
+
+        pushItemBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View e) {
+                startActivity(new Intent(getActivity(), AddItem.class));
+            }
+        });
+
         return root;
     }
 }

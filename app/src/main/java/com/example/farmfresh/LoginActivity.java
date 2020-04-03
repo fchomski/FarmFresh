@@ -78,7 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                         UserType ut = user.get(Key.User.USER_TYPE).equals("BUYER") ? UserType.BUYER : UserType.SELLER;
                         s.setUserType(ut);
                         s.setUser(user);
+                        System.out.println("State ::");
                         System.out.println(s.getUserType());
+                        System.out.println(s.getUser());
                         startActivity(new Intent(LoginActivity.this, HomePage.class));
                         break;
                     }

@@ -2,6 +2,7 @@ package com.example.farmfresh;
 
 import android.os.Bundle;;
 import android.view.Menu;
+import android.view.WindowManager;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -21,6 +22,7 @@ public class HomePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
