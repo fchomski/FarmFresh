@@ -29,8 +29,9 @@
 
             <Button
                 android:id="@+id/searchBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="#3A3A3A"
                 android:text="Search"
@@ -43,6 +44,8 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp"
                 android:id="@+id/itemList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
