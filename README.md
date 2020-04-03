@@ -7,7 +7,6 @@ Developed using AndroidStudio, FarmFresh is an app that connects farmers market 
 Currently being developed.
 
 ## Initial Screenshots
-<img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/opening.jpg" width="200" height="325" />                        <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/login.jpg" width="200" height="325" />                        <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/buyorsell.jpg" width="200" height="325" />                    <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/signup.jpg" width="200" height="325" />
-
+<img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/opening.jpg" width="200" height="325" /> <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/login.jpg" width="200" height="325" /> <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/profile.jpg" width="200" height="325" /> <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/buyorsell.jpg" width="200" height="325" /> <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/signup.jpg" width="200" height="325" /> <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/additem.jpg" width="200" height="325" /> <img src="https://github.com/fchomski/FarmFresh/blob/master/screenshots/search.jpg" width="200" height="325" />
 ## About
 _Created for COSC 341: Human Computer Interaction | 2020 | Florencia Chomski, Paul Zapote, JinYang Yao, Henter Yang_

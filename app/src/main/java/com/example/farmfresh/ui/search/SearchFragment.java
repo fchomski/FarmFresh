@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.arch.core.util.Function;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Connect;
 import com.example.farmfresh.model.data.Item;
+import com.example.farmfresh.model.data.Key;
+import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 
@@ -30,6 +34,8 @@ public class SearchFragment extends Fragment {
     private ItemCardAdaptor adaptor;
     private ArrayList<Item> items;
     private View root;
+    private Button searchBtn;
+    private TextInputEditText searchText;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,6 +43,45 @@ public class SearchFragment extends Fragment {
         searchViewModel =
                 ViewModelProviders.of(this).get(SearchViewModel.class);
         root = inflater.inflate(R.layout.fragment_search, container, false);
+        searchBtn = (Button) root.findViewById(R.id.searchBtn);
+        searchText = root.findViewById(R.id.searchText);
+
+        // search result
+        searchBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View e) {
+                try {
+                    Connect c = new Connect(getContext());
+                    ArrayList<Item> filterd =  c.filter(Key.Item.ITEM_NAME,
+                            new Function<Object, Boolean>() {
+                                @Override
+                                public Boolean apply(Object e) {
+                                    String searchString = searchText.getText().toString();
+                                    if (searchString == null || searchString.equals("")) return true;
+                                    System.out.println("::");
+                                    System.out.println(e.toString());
+                                    System.out.println(searchString);
+
+                                    return Objects.equals(
+                                            e,
+                                            searchString
+                                            );
+                                }
+                            },
+                            Item.class);
+                    items.clear();
+                    items.addAll(filterd);
+                    adaptor.notifyDataSetChanged();
+                    System.out.println(items.toString());
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                } catch (IllegalAccessException ex) {
+                    ex.printStackTrace();
+                } catch (java.lang.InstantiationException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
 
         try {
             initView();
