@@ -2,6 +2,7 @@ package com.example.farmfresh.ui.profile;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -27,9 +28,8 @@ public class Cart extends FragmentActivity {
     private RecyclerView recyclerView;
     private ItemCartAdaptor adaptor;
     private ArrayList<Item> items;
-    private Button searchBtn;
+    private Button checkoutBtn;
     private State state;
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -37,6 +37,13 @@ public class Cart extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         state = State.getInstance();
+
+        checkoutBtn = (Button) findViewById(R.id.cartCheckout);
+        checkoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View e) {
+            }
+        });
 
         try {
             initView();

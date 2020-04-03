@@ -41,6 +41,7 @@ public class ProfileFragment extends Fragment {
         Button pushItemBtn = (Button) root.findViewById(R.id.pushItemBtn);
         Button paymentDtlBtn = (Button) root.findViewById(R.id.paymentDtlsBtn);
         Button toCartBtn = (Button) root.findViewById(R.id.toCartBtn);
+        Button locateFarmBtn = (Button) root.findViewById(R.id.locateFarmBtn);
 
         changePwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override

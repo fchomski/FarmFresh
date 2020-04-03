@@ -2,6 +2,7 @@ package com.example.farmfresh.ui.near_me;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,24 +10,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 
+import com.example.farmfresh.BuildConfig;
 import com.example.farmfresh.R;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-public class NearMeFragment extends Fragment implements OnMapReadyCallback{
+import org.osmdroid.api.IMapController;
+import org.osmdroid.config.IConfigurationProvider;
+import org.osmdroid.config.Configuration;
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory;
+import org.osmdroid.util.GeoPoint;
+import org.osmdroid.views.MapView;
+
+import java.util.prefs.PreferenceChangeEvent;
+
+public class NearMeFragment extends Fragment {
 
     private NearMeViewModel mViewModel;
-    private GoogleMap mMap;
+    private MapView mMap;
+    private GeoPoint startPoint;
+    private IMapController mapController;
+    private IConfigurationProvider provider;
 
     public static NearMeFragment newInstance() {
         return new NearMeFragment();
@@ -37,10 +45,27 @@ public class NearMeFragment extends Fragment implements OnMapReadyCallback{
                              @Nullable Bundle savedInstanceState) {
         View root;
         root = inflater.inflate(R.layout.fragment_nearme, container, false);
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        mMap = (MapView) root.findViewById(R.id.map);
+        mapSetUp();
 
-        mapFragment.getMapAsync(this);
         return root;
+    }
+
+    private void mapSetUp() {
+        mMap.setTileSource(TileSourceFactory.MAPNIK);
+        mMap.setMinZoomLevel(6.0);
+        mMap.setMaxZoomLevel(25.0);
+        mMap.setMultiTouchControls(true);
+        mMap.setBuiltInZoomControls(true);
+
+        provider = Configuration.getInstance();
+        provider.load(getContext(), PreferenceManager.getDefaultSharedPreferences(getContext()));
+
+        startPoint = new GeoPoint(49.88, -119.49);
+
+        mapController = mMap.getController();
+        mapController.setCenter(startPoint);
+        mapController.setZoom(15);
     }
 
     @Override
@@ -51,12 +76,14 @@ public class NearMeFragment extends Fragment implements OnMapReadyCallback{
     }
 
     @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMinZoomPreference(6.0f);
-        mMap.setMinZoomPreference(14.0f);
-        LatLng location = new LatLng(49.88, -119.48);
-        mMap.addMarker(new MarkerOptions().position(location).title("Here"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
+    public void onResume() {
+        super.onResume();
+        mMap.onResume();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mMap.onPause();
     }
 }

@@ -16,18 +16,25 @@
         android:textColor="#3A3A3A"
         android:textSize="13pt" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#8FCC80"
-        android:orientation="horizontal">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cartList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="30dp"
+            android:background="#8FCC80"
+            android:layout_height="477dp"
             android:scrollbars="vertical" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/cartCheckout"
+        android:layout_width="400px"
+        android:layout_height="wrap_content"
+        android:background="#3A3A3A"
+        android:onClick="loginValidate"
+        android:layout_gravity="right"
+        android:layout_marginRight="30dp"
+        android:text="Checkout"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        />
+
 
 </LinearLayout>

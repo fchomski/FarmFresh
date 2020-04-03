@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+    <org.osmdroid.views.MapView
+        android:id="@+id/pinmap"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="79dp"
+        tools:layout_editor_absoluteY="53dp">
+   </org.osmdroid.views.MapView>
+
+    <Button
+        android:id="@+id/pinSearchBtn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_weight="1"
+        android:background="#3A3A3A"
+        android:text="I'm here"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="20dp"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        tools:ignore="MissingConstraints" />
+</FrameLayout>

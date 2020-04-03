@@ -21,9 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDujkmmbZvHYwspccKtwxv6_Oz4B_dY9Do"/>
+
         <activity
             android:name=".HomePage"
             android:label="@string/title_activity_home_page"
@@ -42,7 +40,7 @@
         <activity android:name=".ui.profile.ProfileFragment" />
         <activity android:name=".ui.profile.Cart" />
         <activity android:name=".ui.search.SingleItem" />
+        <activity android:name=".ui.maps.PinLocationMap" />
+        <activity android:name=".ui.maps.NearMeMap" />
     </application>
-
-
 </manifest>

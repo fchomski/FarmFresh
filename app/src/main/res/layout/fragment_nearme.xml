@@ -3,11 +3,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <fragment
-        android:id="@+id/map"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        tools:context=".ui.near_me.NearMeFragment"
-        android:name="com.google.android.gms.maps.SupportMapFragment" />
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="50dp"
 
+        tools:ignore="MissingConstraints">
+        <Button
+            android:id="@+id/nearmeSearchBtn"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="#3A3A3A"
+            android:text="Search"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF" />
+    </FrameLayout>
+
+    <org.osmdroid.views.MapView android:id="@+id/map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
