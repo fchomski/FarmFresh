@@ -9,18 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-
-
-        <activity android:name=".singleproduct" />
-
-        
-
-        <activity android:name=".SignUpSellers" />
         <activity
             android:name=".HomePage"
             android:label="@string/title_activity_home_page"
-            android:theme="@style/NoActionBar" />
-        <activity android:name=".SignUp" />
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".SignUpBuyers" />
         <activity android:name=".BuyOrSellActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
@@ -30,14 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".search"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.NoActionBar2" />
-        <activity
-            android:name=".categorypage"
-            android:screenOrientation="fullSensor"
-            android:theme="@style/AppTheme.NoActionBar2" />
     </application>
 
 </manifest>

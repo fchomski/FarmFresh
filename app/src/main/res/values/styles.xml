@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#8FCC80</item>
+        <item name="colorPrimaryDark">#8FCC80</item>
+        <item name="colorAccent">#8FCC80</item>
     </style>
 
     <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
@@ -16,5 +16,27 @@
     <style name="AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Toolbar.MyStyle" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+    </style>
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="AppTheme.NoActionBar2" parent="AppTheme">
+        <item name="colorPrimary">#8FCC80</item>
+        <item name="colorPrimaryDark">#8FCC80</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:textColorSecondary">#ffffff</item>
+    </style>
+
+
+
+
+
+
+
 
 </resources>
