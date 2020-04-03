@@ -94,6 +94,8 @@ public class AddItem extends FragmentActivity {
                         newItem.put(Key.Item.PRICE, price);
                         newItem.put(Key.Item.QUANTITY, quantity);
                         newItem.put(Key.Item.IMAGE_BASE64, imageBase64);
+                        System.out.println(newItem.toJson());
+                        c.add(newItem, Item.class);
                         c.sync();
                         finish();
                     } else {
@@ -122,6 +124,7 @@ public class AddItem extends FragmentActivity {
                 Uri selectedImage = data.getData();
                 try {
                     assert selectedImage != null;
+                    // Uri -> byteArray -> base64 String
                     InputStream is = getContentResolver().openInputStream(selectedImage);
                     byteArray = getBytes(is);
                     imageBase64 = encoder.encodeToString(byteArray);
