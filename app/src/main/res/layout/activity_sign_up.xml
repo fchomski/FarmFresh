@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8FCC80"
-    tools:context=".SignUpBuyers">
+    tools:context=".SignUp">
 
     <Button
         android:id="@+id/backArrow"

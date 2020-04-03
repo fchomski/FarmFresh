@@ -1,14 +1,38 @@
 package com.example.farmfresh;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.arch.core.util.Function;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.farmfresh.model.data.Connect;
+import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.State;
+import com.example.farmfresh.model.data.User;
+import com.example.farmfresh.model.data.UserType;
+
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.Objects;
+
+import static com.example.farmfresh.model.data.State.getInstance;
 
 public class LoginActivity extends AppCompatActivity {
 
+    EditText etUsername;
     EditText etPassword;
+    String toasterMsg;
+    Toast toast;
+
+    @SuppressLint("ShowToast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,12 +41,60 @@ public class LoginActivity extends AppCompatActivity {
         //Replace characters entered in password and re-enter password fields with asterisks
         etPassword = findViewById(R.id.passwordLogin);
         etPassword.setTransformationMethod(new AsteriskPasswordTransformationMethod());
+
+        etUsername = findViewById(R.id.usernameLogin);
+
+        toasterMsg = "Username or password error";
+        toast = Toast.makeText(this, toasterMsg, Toast.LENGTH_SHORT);
+        toast.setMargin(50, 50);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void loginValidate(View v) {
         //TODO: Validate inputs
         //Go to homepage
-        startActivity(new Intent(LoginActivity.this, HomePage.class));
+        try {
+            Connect c = new Connect(getApplicationContext());
+            ArrayList<User> res = c.filter(Key.User.USER_NAME, new Function<Object, Boolean>() {
+                @Override
+                public Boolean apply(Object e) {
+                    return e.toString().equals(etUsername.getText().toString());
+                }
+            }, User.class);
+            System.out.println(res.toString());
+
+            if (!res.isEmpty()) {
+                int i;
+                for (i = 0; i < res.size(); ++i) {
+                    // filter user information
+                    User user = res.get(i);
+                    String username = (String) user.get(Key.User.USER_NAME);
+                    String upw = (String) user.get(Key.User.USER_PASSWORD);
+                    if (Objects.equals(username, etUsername.getText().toString()) &&
+                            Objects.equals(upw, etPassword.getText().toString())) {
+
+                        // set session state.
+                        State s = State.getInstance();
+                        UserType ut = user.get(Key.User.USER_TYPE).equals("BUYER") ? UserType.BUYER : UserType.SELLER;
+                        s.setUserType(ut);
+                        s.setUser(user);
+                        System.out.println(s.getUserType());
+                        startActivity(new Intent(LoginActivity.this, HomePage.class));
+                        break;
+                    }
+                }
+                if (i == res.size()) toast.show();
+            } else {
+                toast.show();
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
     }
     public void back(View v) {
         startActivity(new Intent(LoginActivity.this, MainActivity.class));
