@@ -54,18 +54,18 @@ public class SignUpBuyers extends AppCompatActivity {
         //Display a toast message prompting user to enter a field if they have missed one or re-enter if the value is invalid
         if(fullName.matches("")||username.matches("")||password.matches("")||passValidate.matches("")||location.matches("")) {
             if(fullName.matches("")) {
-                toastMessage += "\n- Please enter your full name\n";
+            toastMessage += "\n- Please enter your full name\n";
             }if(username.matches("")) {
-                toastMessage += "\n- Please enter a username\n";
+            toastMessage += "\n- Please enter a username\n";
             }if(password.matches("")) {
-                toastMessage += "\n- Please enter a password\n";
+            toastMessage += "Please enter a password";
             }if(passValidate.matches("")) {
-                toastMessage += "\n- Please re-enter your password\n";
+            toastMessage += "Please re-enter your password";
             }if(!password.matches(passValidate)) {
-                //If the two passwords entered do not match, tell user
-                toastMessage += "\n- The passwords entered do not match. Please try again\n";
-            }if(location.matches("Select a city")) {
-                toastMessage += "\n- Please select a location\n";
+            //If the two passwords entered do not match, tell user
+            toastMessage += "The passwords entered do not match. Please try again";
+            }if(location.matches("")) {
+                toastMessage += "Please select a location";
             }
         } else {
             //Valid inputs entered, continue to homepage

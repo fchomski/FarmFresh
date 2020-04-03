@@ -1,11 +1,8 @@
 package com.example.farmfresh;
 
-import android.os.Bundle;
-import android.view.View;
+import android.os.Bundle;;
 import android.view.Menu;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -26,6 +23,7 @@ public class HomePage extends AppCompatActivity {
         setContentView(R.layout.activity_home_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 //        FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -34,6 +32,7 @@ public class HomePage extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

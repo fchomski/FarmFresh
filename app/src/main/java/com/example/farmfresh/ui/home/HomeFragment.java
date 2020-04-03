@@ -13,8 +13,12 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.farmfresh.R;
+import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.State;
 
 public class HomeFragment extends Fragment {
+
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
