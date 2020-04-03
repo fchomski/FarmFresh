@@ -22,12 +22,8 @@ import java.io.BufferedReader;
 
 public class ProfileFragment extends Fragment {
 
-    private ProfileViewModel profileViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        profileViewModel =
-//                ViewModelProviders.of(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
 //        final TextView textView = root.findViewById(R.id.text_home);
 //        profileViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -38,9 +34,17 @@ public class ProfileFragment extends Fragment {
 //        });
         State s = State.getInstance();
 
-        TextView userNameText = (TextView) root.findViewById(R.id.userName);
-        TextView userFullNameText = (TextView) root.findViewById(R.id.userFullName);
-        TextView LocationText = (TextView) root.findViewById(R.id.locationText);
+        TextView userNameText = root.findViewById(R.id.userName);
+        TextView usernameFull = root.findViewById(R.id.userFullName);
+        TextView location = root.findViewById(R.id.lTN);
+      
+        //Display user's selected username
+        userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+
+        //TODO: Change this to user's full name rather than username
+        usernameFull.setText((String) s.getUser().get(Key.User.USER_NAME));
+
+        //TODO: Set user's location to entered value, not default
 
         Button changePwdBtn = (Button) root.findViewById(R.id.changePwdBtn);
         Button pushItemBtn = (Button) root.findViewById(R.id.pushItemBtn);
