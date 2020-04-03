@@ -16,6 +16,7 @@
             android:theme="@style/NoActionBar" />
         <activity android:name=".SignUp" />
         <activity android:name=".ui.profile.AddItem" />
+        <activity android:name=".ui.near_me.Map" />
         <activity android:name=".BuyOrSellActivity" />
 
         <activity android:name=".LoginActivity" />

@@ -135,8 +135,13 @@ public class Connect {
     }
 
     // write change into file.
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void sync() {
-        dataModel.sync(context, path);
+        try {
+            dataModel.sync(context, path);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
