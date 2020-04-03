@@ -1,6 +1,7 @@
 package com.example.farmfresh.ui.search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
@@ -18,6 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Item;
 import com.example.farmfresh.model.data.Key;
+
+import org.json.JSONException;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -67,7 +70,7 @@ public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceH
         }
 
         @RequiresApi(api = Build.VERSION_CODES.O)
-        public void setUp(Item item) {
+        public void setUp(final Item item) {
             itemName.setText((String) item.get(Key.Item.ITEM_NAME));
             itemPrice.setText((String) item.get(Key.Item.PRICE));
             itemSeller.setText((String) item.get(Key.Item.SELLER_NAME));
@@ -75,6 +78,20 @@ public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceH
             String base64Image = (String) item.get(Key.Item.IMAGE_BASE64);
             byte[] byteArray = base64ImgToByteArray(base64Image);
             itemImage.setImageBitmap(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length));
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View e) {
+                    Context context = e.getContext();
+                    Intent intent = new Intent(context, SingleItem.class);
+                    try {
+                        intent.putExtra("item", item.toJson().toString());
+                        context.startActivity(intent);
+                    } catch (JSONException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+            });
         }
 
         @RequiresApi(api = Build.VERSION_CODES.O)

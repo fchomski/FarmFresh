@@ -141,7 +141,6 @@ public class AddItem extends FragmentActivity {
 
             }
         }
-
     }
 
     private byte[] getBytes(InputStream is) throws IOException {

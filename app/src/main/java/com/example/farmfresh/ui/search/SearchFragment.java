@@ -58,14 +58,7 @@ public class SearchFragment extends Fragment {
                                 public Boolean apply(Object e) {
                                     String searchString = searchText.getText().toString();
                                     if (searchString == null || searchString.equals("")) return true;
-                                    System.out.println("::");
-                                    System.out.println(e.toString());
-                                    System.out.println(searchString);
-
-                                    return Objects.equals(
-                                            e,
-                                            searchString
-                                            );
+                                    return Objects.equals(e, searchString);
                                 }
                             },
                             Item.class);
