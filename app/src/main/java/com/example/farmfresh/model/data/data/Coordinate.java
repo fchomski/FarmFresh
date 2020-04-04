@@ -1,11 +1,14 @@
-package com.example.farmfresh.model.data;
+package com.example.farmfresh.model.data.data;
+
+import com.example.farmfresh.model.data.Jsonable;
+import com.example.farmfresh.model.data.enums.Key;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class Coordinate<getter> extends HashMap<Key.Coordinate, Double> implements Jsonable<Coordinate>{
+public class Coordinate<getter> extends HashMap<Key.Coordinate, Double> implements Jsonable<Coordinate> {
 
     @Override
     public JSONObject toJson() throws JSONException {

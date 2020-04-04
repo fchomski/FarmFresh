@@ -1,4 +1,4 @@
-package com.example.farmfresh.model.data;
+package com.example.farmfresh.model.data.enums;
 
 /* Some enum Keys to access HashMap record
    Only access record from Key here since it provides type checking rather than

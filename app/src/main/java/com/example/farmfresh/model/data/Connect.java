@@ -1,26 +1,23 @@
 package com.example.farmfresh.model.data;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Build;
-import android.provider.ContactsContract;
-import android.view.textclassifier.TextClassifierEvent;
 
-import androidx.annotation.AnimatorRes;
-import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.arch.core.util.Function;
 
 import com.example.farmfresh.R;
+import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.data.User;
+import com.example.farmfresh.model.data.enums.Key;
+import com.example.farmfresh.model.data.enums.UserType;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -125,6 +122,22 @@ public class Connect {
                 dataModel.getItems().add((Item) ele);
                 break;
         }
+    }
+    public <T extends HashMap &Jsonable> ArrayList<T>
+    replace(Enum key, T new_data, ArrayList<T> list, Class<T> cls) throws JSONException {
+        /*
+            Replace an element in the given list.
+            Usage:
+                given list = [{a: 1, b: 2}, {a: 2, b: 2}]
+                replce(key, {a: 1, b:10}, list) will return [{a: 1, b: 10}, {a: 2, b: 2}]
+         */
+        for (T ele : list) {
+            if (ele.get(key) == new_data.get(key)) {
+                list.remove(ele);
+                list.add(new_data);
+            }
+        }
+        return list;
     }
     public <T extends HashMap &Jsonable> void update(ArrayList<T> list, Class<T> cls) throws JSONException {
         // TODO refactor

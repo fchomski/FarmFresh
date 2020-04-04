@@ -19,8 +19,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.adaptor.ItemCardAdaptor;
 import com.example.farmfresh.model.data.Connect;
-import com.example.farmfresh.model.data.Item;
-import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.enums.Key;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;

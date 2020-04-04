@@ -5,6 +5,9 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.data.User;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

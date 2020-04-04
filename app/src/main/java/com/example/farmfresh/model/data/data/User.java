@@ -1,15 +1,17 @@
-package com.example.farmfresh.model.data;
+package com.example.farmfresh.model.data.data;
 
 import android.os.Build;
-import android.sax.StartElementListener;
 
 import androidx.annotation.RequiresApi;
+
+import com.example.farmfresh.model.data.Jsonable;
+import com.example.farmfresh.model.data.enums.Key;
+import com.example.farmfresh.model.data.enums.UserType;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 //TODO : need a location to coordinate table to show correct map.
 

@@ -1,8 +1,11 @@
-package com.example.farmfresh.model.data;
+package com.example.farmfresh.model.data.data;
 
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
+
+import com.example.farmfresh.model.data.Jsonable;
+import com.example.farmfresh.model.data.enums.Key;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,8 +13,7 @@ import org.json.JSONObject;
 import java.util.Base64;
 import java.util.HashMap;
 
-import static com.example.farmfresh.model.data.Key.Item.IMAGE_BASE64;
-import static java.util.Base64.getDecoder;
+import static com.example.farmfresh.model.data.enums.Key.Item.IMAGE_BASE64;
 import static java.util.Base64.getEncoder;
 
 

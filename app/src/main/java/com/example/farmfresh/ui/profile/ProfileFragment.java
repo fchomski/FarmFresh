@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.farmfresh.R;
-import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.enums.Key;
 import com.example.farmfresh.model.data.State;
-import com.example.farmfresh.model.data.UserType;
+import com.example.farmfresh.model.data.enums.UserType;
 import com.example.farmfresh.ui.maps.PinLocationMap;
 
 public class ProfileFragment extends Fragment {

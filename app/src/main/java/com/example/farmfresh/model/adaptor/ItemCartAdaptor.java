@@ -15,8 +15,8 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmfresh.R;
-import com.example.farmfresh.model.data.Item;
-import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.enums.Key;
 import com.example.farmfresh.ui.search.SingleItem;
 
 import org.json.JSONException;

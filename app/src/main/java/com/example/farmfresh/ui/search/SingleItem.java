@@ -2,7 +2,6 @@ package com.example.farmfresh.ui.search;
 
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -16,16 +15,13 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.farmfresh.R;
-import com.example.farmfresh.model.data.Item;
-import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.enums.Key;
 import com.example.farmfresh.model.data.State;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Base64;
 
 public class SingleItem extends FragmentActivity {

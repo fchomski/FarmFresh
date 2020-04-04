@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -14,15 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.adaptor.ItemCartAdaptor;
-import com.example.farmfresh.model.data.Connect;
-import com.example.farmfresh.model.data.Item;
-import com.example.farmfresh.model.adaptor.ItemCardAdaptor;
+import com.example.farmfresh.model.data.data.Item;
 import com.example.farmfresh.model.data.State;
 
 import org.json.JSONException;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Cart extends FragmentActivity {
     private RecyclerView recyclerView;

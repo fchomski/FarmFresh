@@ -4,22 +4,14 @@ package com.example.farmfresh.ui.profile;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.FragmentActivity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 
-import android.provider.ContactsContract;
-import android.provider.MediaStore;
-import android.renderscript.ScriptGroup;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -27,17 +19,15 @@ import android.widget.Toast;
 
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Connect;
-import com.example.farmfresh.model.data.Item;
-import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.enums.Key;
 import com.example.farmfresh.model.data.State;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
-import java.io.IOError;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.Base64;
 
 

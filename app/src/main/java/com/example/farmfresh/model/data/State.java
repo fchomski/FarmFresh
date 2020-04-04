@@ -1,5 +1,9 @@
 package com.example.farmfresh.model.data;
 
+import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.data.User;
+import com.example.farmfresh.model.data.enums.UserType;
+
 import java.util.ArrayList;
 
 // Singleton class to hold session state.

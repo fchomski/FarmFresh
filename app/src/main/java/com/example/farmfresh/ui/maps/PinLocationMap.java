@@ -1,7 +1,6 @@
 package com.example.farmfresh.ui.maps;
 
 
-import android.graphics.CornerPathEffect;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
@@ -9,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -16,12 +16,11 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Connect;
-import com.example.farmfresh.model.data.Coordinate;
-import com.example.farmfresh.model.data.Key;
+import com.example.farmfresh.model.data.data.Coordinate;
+import com.example.farmfresh.model.data.enums.Key;
 import com.example.farmfresh.model.data.State;
-import com.example.farmfresh.model.data.User;
+import com.example.farmfresh.model.data.data.User;
 import com.example.farmfresh.ui.near_me.NearMeViewModel;
-import com.google.android.material.badge.BadgeUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,7 +33,6 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
-import org.osmdroid.views.overlay.Overlay;
 
 public class PinLocationMap extends FragmentActivity {
     private NearMeViewModel mViewModel;
@@ -65,7 +63,7 @@ public class PinLocationMap extends FragmentActivity {
         mapSetUp();
         mMap.getOverlays().add(new MapEventsOverlay(mReceiver));
 
-        locateBtn = (Button) findViewById(R.id.locateFarmBtn);
+        locateBtn = (Button) findViewById(R.id.pinLocateBtn);
         locateBtn.setOnClickListener(new View.OnClickListener() {
             // write location change into dataModel.
             @RequiresApi(api = Build.VERSION_CODES.O)
@@ -76,6 +74,13 @@ public class PinLocationMap extends FragmentActivity {
                 } catch (JSONException ex) {
                     ex.printStackTrace();
                 }
+
+                Toast toast;
+                String toasterMsg;
+                toasterMsg = "Set new farm location";
+                toast = Toast.makeText(getApplicationContext(), toasterMsg, Toast.LENGTH_SHORT);
+                toast.setMargin(50, 50);
+
                 finish();
             }
         });
@@ -85,7 +90,7 @@ public class PinLocationMap extends FragmentActivity {
     private void mapSetUp() {
         mMap.setTileSource(TileSourceFactory.MAPNIK);
         mMap.setMinZoomLevel(6.0);
-        mMap.setMaxZoomLevel(25.0);
+        mMap.setMaxZoomLevel(30.0);
         mMap.setBuiltInZoomControls(true);
 
         provider = Configuration.getInstance();
@@ -95,7 +100,7 @@ public class PinLocationMap extends FragmentActivity {
 
         mapController = mMap.getController();
         mapController.setCenter(startPoint);
-        mapController.setZoom(15);
+        mapController.setZoom(16);
 
         marker = newMarker(startPoint);
     }
