@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-class Coordinate<getter> extends HashMap<Key.Coordinate, Double> implements Jsonable<Coordinate>{
+public class Coordinate<getter> extends HashMap<Key.Coordinate, Double> implements Jsonable<Coordinate>{
 
     @Override
     public JSONObject toJson() throws JSONException {

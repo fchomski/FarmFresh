@@ -6,6 +6,7 @@ import android.os.Build;
 import android.provider.ContactsContract;
 import android.view.textclassifier.TextClassifierEvent;
 
+import androidx.annotation.AnimatorRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.arch.core.util.Function;
@@ -138,6 +139,15 @@ public class Connect {
                 dataModel.setItems((ArrayList<Item>) list);
                 break;
         }
+    }
+
+    public ArrayList<User> getSellers() throws IllegalAccessException, JSONException, InstantiationException {
+        return filter(Key.User.USER_TYPE, new Function<Object, Boolean>() {
+            @Override
+            public Boolean apply(Object e) {
+                return e == UserType.SELLER;
+            }
+        }, User.class);
     }
 
     // write change into file.

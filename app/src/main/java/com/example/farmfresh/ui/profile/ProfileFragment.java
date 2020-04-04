@@ -15,10 +15,11 @@ import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Key;
 import com.example.farmfresh.model.data.State;
 import com.example.farmfresh.model.data.UserType;
+import com.example.farmfresh.ui.maps.PinLocationMap;
 
 public class ProfileFragment extends Fragment {
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
+    public View onCreateView(@NonNull final LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         final View root = inflater.inflate(R.layout.fragment_profile, container, false);
 
@@ -43,12 +44,25 @@ public class ProfileFragment extends Fragment {
         Button toCartBtn = (Button) root.findViewById(R.id.toCartBtn);
         Button locateFarmBtn = (Button) root.findViewById(R.id.locateFarmBtn);
 
+       // set the visibility of button based on user type.
+        System.out.println(s.getUser());
+        if (s.getUserType() == UserType.BUYER) {
+            pushItemBtn.setVisibility(View.INVISIBLE);
+            locateFarmBtn.setVisibility(View.INVISIBLE);
+            paymentDtlBtn.setVisibility(View.VISIBLE);
+        } else {
+            pushItemBtn.setVisibility(View.VISIBLE);
+            locateFarmBtn.setVisibility(View.VISIBLE);
+            paymentDtlBtn.setVisibility(View.INVISIBLE);
+        }
+
         changePwdBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO
             }
         });
+
         toCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View e) {
@@ -57,20 +71,18 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-        // set the visibility of button based on user type.
-        System.out.println(s.getUser());
-        if (s.getUserType() == UserType.BUYER) {
-            pushItemBtn.setVisibility(View.INVISIBLE);
-            paymentDtlBtn.setVisibility(View.VISIBLE);
-        } else {
-            pushItemBtn.setVisibility(View.VISIBLE);
-            paymentDtlBtn.setVisibility(View.INVISIBLE);
-        }
-
         pushItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View e) {
                 startActivity(new Intent(getActivity(), AddItem.class));
+            }
+        });
+
+        locateFarmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View e) {
+                Intent pinMapIntent = new Intent(getContext(), PinLocationMap.class);
+                getContext().startActivity(pinMapIntent);
             }
         });
 
