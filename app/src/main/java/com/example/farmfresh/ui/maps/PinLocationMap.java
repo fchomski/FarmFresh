@@ -7,6 +7,8 @@ import android.graphics.drawable.ScaleDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -19,6 +21,7 @@ import com.example.farmfresh.model.data.Key;
 import com.example.farmfresh.model.data.State;
 import com.example.farmfresh.model.data.User;
 import com.example.farmfresh.ui.near_me.NearMeViewModel;
+import com.google.android.material.badge.BadgeUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,6 +50,8 @@ public class PinLocationMap extends FragmentActivity {
 
     private State state;
 
+    private Button locateBtn;
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +64,21 @@ public class PinLocationMap extends FragmentActivity {
         mapEventSetup();
         mapSetUp();
         mMap.getOverlays().add(new MapEventsOverlay(mReceiver));
+
+        locateBtn = (Button) findViewById(R.id.locateFarmBtn);
+        locateBtn.setOnClickListener(new View.OnClickListener() {
+            // write location change into dataModel.
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View e) {
+                try {
+                    Connect connect = new Connect(getApplicationContext());
+                } catch (JSONException ex) {
+                    ex.printStackTrace();
+                }
+                finish();
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
