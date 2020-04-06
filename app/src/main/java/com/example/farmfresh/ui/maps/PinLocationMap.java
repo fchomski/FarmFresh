@@ -149,12 +149,13 @@ public class PinLocationMap extends FragmentActivity {
                 JSONObject obj = new JSONObject();
                 try {
                     Connect connect = new Connect(getApplicationContext());
+                    User u = state.getUser();
+
                     obj.put("lat", geoPoint.getLatitude());
                     obj.put("lng", geoPoint.getLongitude());
                     c = new Coordinate().fromJson(obj);
 
                     // update the state of current user.
-                    User u = state.getUser();
                     u.put(Key.User.USER_LOCATION, c);
                     state.setUser(u);
 

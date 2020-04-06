@@ -14,6 +14,7 @@ import com.example.farmfresh.model.data.enums.UserType;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.osmdroid.config.IConfigurationProvider;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -25,6 +26,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 import static com.example.farmfresh.model.data.DataModel.getJsonArrayPropertyName;
 
@@ -108,13 +110,26 @@ public class Connect {
 
     public <T extends HashMap & Jsonable, U> void remove(Enum key, U val, Class<T> cls) throws JSONException {
         ArrayList<T> list = getList(cls);
-        for (T ele : getList(cls)) {
-            if (ele.get(key).equals(val)) {
+        for (T ele : list) {
+            if (ele != null && ele.get(key).equals(val)) {
                 list.remove(ele);
                 System.out.println("removed");
+                return;
             }
         }
     }
+
+    public ArrayList<Item> getSellerItems(final User user) throws IllegalAccessException, JSONException, InstantiationException {
+        return filter(Key.Item.SELLER_NAME, new Function<Object, Boolean>() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public Boolean apply(Object e) {
+                return Objects.equals(user.get(Key.User.USER_NAME), e);
+            }
+        },
+               Item.class);
+    }
+
 
     public <T extends  Jsonable> void add(T ele, Class<T> cls) {
         /* Usage:
