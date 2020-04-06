@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -33,6 +34,8 @@ import org.osmdroid.util.GeoPoint;
 import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.MapEventsOverlay;
 import org.osmdroid.views.overlay.Marker;
+
+import java.util.ArrayList;
 
 public class PinLocationMap extends FragmentActivity {
     private NearMeViewModel mViewModel;
@@ -69,22 +72,26 @@ public class PinLocationMap extends FragmentActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View e) {
+                // put the new user data with updated coordinate on to the DataModel.
+
                 try {
-                    Connect connect = new Connect(getApplicationContext());
+                    Connect c = new Connect(getApplicationContext());
+                    User u = state.getUser();
+                    c.remove(Key.User.USER_NAME, u.get(Key.User.USER_NAME), User.class);
+                    c.add(u, User.class);
+                    c.sync();
                 } catch (JSONException ex) {
                     ex.printStackTrace();
                 }
 
-                Toast toast;
-                String toasterMsg;
-                toasterMsg = "Set new farm location";
-                toast = Toast.makeText(getApplicationContext(), toasterMsg, Toast.LENGTH_SHORT);
-                toast.setMargin(50, 50);
+                info("Set new farm location");
 
-                finish();
+                if (state.getUser().get(Key.User.USER_LOCATION) != null) finish();
             }
         });
+        info("Please tap on the map to select the location of your farm");
     }
+
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     private void mapSetUp() {
@@ -102,7 +109,13 @@ public class PinLocationMap extends FragmentActivity {
         mapController.setCenter(startPoint);
         mapController.setZoom(16);
 
-        marker = newMarker(startPoint);
+    }
+
+    private void info(String msg) {
+        Toast toast;
+        String toasterMsg;
+        toast = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT);
+        toast.setMargin(50, 50);
     }
 
     private Marker newMarker(GeoPoint p) {
@@ -122,6 +135,8 @@ public class PinLocationMap extends FragmentActivity {
     }
 
     private void mapEventSetup() {
+        // update the coordinate of user in State singleton.
+        // The coordinate will be synced onFinish
         mReceiver = new MapEventsReceiver() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -137,7 +152,6 @@ public class PinLocationMap extends FragmentActivity {
                     obj.put("lat", geoPoint.getLatitude());
                     obj.put("lng", geoPoint.getLongitude());
                     c = new Coordinate().fromJson(obj);
-                    // TODO update the data.
 
                     // update the state of current user.
                     User u = state.getUser();

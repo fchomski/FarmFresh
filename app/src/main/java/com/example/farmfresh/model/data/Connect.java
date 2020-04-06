@@ -106,6 +106,16 @@ public class Connect {
         return res;
     }
 
+    public <T extends HashMap & Jsonable, U> void remove(Enum key, U val, Class<T> cls) throws JSONException {
+        ArrayList<T> list = getList(cls);
+        for (T ele : getList(cls)) {
+            if (ele.get(key).equals(val)) {
+                list.remove(ele);
+                System.out.println("removed");
+            }
+        }
+    }
+
     public <T extends  Jsonable> void add(T ele, Class<T> cls) {
         /* Usage:
             new Connect.add(new User().fromJson("{...}"))
@@ -120,36 +130,6 @@ public class Connect {
                 break;
             case "item":
                 dataModel.getItems().add((Item) ele);
-                break;
-        }
-    }
-    public <T extends HashMap &Jsonable> ArrayList<T>
-    replace(Enum key, T new_data, ArrayList<T> list, Class<T> cls) throws JSONException {
-        /*
-            Replace an element in the given list.
-            Usage:
-                given list = [{a: 1, b: 2}, {a: 2, b: 2}]
-                replce(key, {a: 1, b:10}, list) will return [{a: 1, b: 10}, {a: 2, b: 2}]
-         */
-        for (T ele : list) {
-            if (ele.get(key) == new_data.get(key)) {
-                list.remove(ele);
-                list.add(new_data);
-            }
-        }
-        return list;
-    }
-    public <T extends HashMap &Jsonable> void update(ArrayList<T> list, Class<T> cls) throws JSONException {
-        // TODO refactor
-        /* Take a instance list and write it into jsonData. */
-        String dataType = getJsonArrayPropertyName(cls);
-        assert dataType != null;
-        switch (dataType) {
-            case "user":
-                dataModel.setUsers((ArrayList<User>) list);
-                break;
-            case "item":
-                dataModel.setItems((ArrayList<Item>) list);
                 break;
         }
     }
