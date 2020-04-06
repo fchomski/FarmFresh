@@ -45,13 +45,16 @@ public class HomeFragment extends Fragment {
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
         float density = dm.density;
         int ll_width = (int) ((100+5) * density * DATA_SIZE);
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ll_width, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams params = new RelativeLayout
+                .LayoutParams(ll_width, RelativeLayout.LayoutParams.WRAP_CONTENT);
         GridView gv = root.findViewById(R.id.gv);
         gv.setLayoutParams(params);
         gv.setNumColumns(DATA_SIZE);
         getData();
-        String[] text={"Fruit","Veggies","Protein","Dairy","Sweets","Grains","Plants","Jewelry","Others"};
-        ListAdapter adapter = new SimpleAdapter(root.getContext(), list, R.layout.grid_item,
+        ListAdapter adapter = new SimpleAdapter(
+                root.getContext(),
+                list,
+                R.layout.grid_item,
                 new String[]{"itemImage","itemName"},
                 new int[]{R.id.itemImage,R.id.itemName});
 
