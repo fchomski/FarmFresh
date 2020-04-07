@@ -23,7 +23,7 @@
         android:id="@+id/nav_search"
         android:name="com.example.farmfresh.ui.search.SearchFragment"
         android:label="@string/menu_search"
-        tools:layout="@layout/fragment_search">
+        tools:layout="@layout/search">
     </fragment>
 
     <fragment

@@ -19,6 +19,7 @@ public class Key {
         ITEM_NAME,
         PRICE,
         QUANTITY,
-        IMAGE_BASE64
+        IMAGE_BASE64,
+        CATEGORY,
     }
 }

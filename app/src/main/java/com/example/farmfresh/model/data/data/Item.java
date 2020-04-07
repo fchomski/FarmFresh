@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import com.example.farmfresh.model.data.Jsonable;
+import com.example.farmfresh.model.data.enums.Category;
 import com.example.farmfresh.model.data.enums.Key;
 
 import org.json.JSONException;
@@ -13,6 +14,7 @@ import org.json.JSONObject;
 import java.util.Base64;
 import java.util.HashMap;
 
+import static com.example.farmfresh.model.data.enums.Key.Item.CATEGORY;
 import static com.example.farmfresh.model.data.enums.Key.Item.IMAGE_BASE64;
 import static java.util.Base64.getEncoder;
 
@@ -29,6 +31,8 @@ public class Item extends HashMap<Key.Item, Object> implements Jsonable<Item> {
         obj.put("price", this.get(Key.Item.PRICE));
         obj.put("quantity", this.get(Key.Item.QUANTITY));
         obj.put("imageBase64", this.get(IMAGE_BASE64));
+        obj.put("category", ((Category) this.get(CATEGORY)).name());
+
         return obj;
     }
 
@@ -40,6 +44,7 @@ public class Item extends HashMap<Key.Item, Object> implements Jsonable<Item> {
         this.put(Key.Item.PRICE, (String) json.get("quantity"));
         this.put(Key.Item.QUANTITY, (String) json.get("price"));
         this.put(IMAGE_BASE64, (String) json.get("imageBase64"));
+        this.put(CATEGORY, Category.parseString((String) json.get("category")));
         return this;
     }
 }

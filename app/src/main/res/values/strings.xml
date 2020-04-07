@@ -22,6 +22,17 @@
         <item>Winnipeg, Manitoba</item>
         <item>Yellowknife, Northwest Territories</item>
     </string-array>
+    <string-array name="category">
+        <item>Fruit</item>
+        <item>Veggies</item>
+        <item>Protein</item>
+        <item>Dairy</item>
+        <item>Sweets</item>
+        <item>Grains</item>
+        <item>Plants</item>
+        <item>Jewelry</item>
+        <item>Others</item>
+    </string-array>
     <string name="title_activity_home_page">HomePage</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -41,4 +52,5 @@
     <string name="item_price">Item Price:</string>
     <string name="seller">Seller:</string>
     <string name="card_item_image">card item Image</string>
+    <string name="category">Category</string>
 </resources>

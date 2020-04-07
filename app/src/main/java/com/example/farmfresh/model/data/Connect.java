@@ -12,6 +12,7 @@ import com.example.farmfresh.model.data.data.User;
 import com.example.farmfresh.model.data.enums.Key;
 import com.example.farmfresh.model.data.enums.UserType;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.osmdroid.config.IConfigurationProvider;
@@ -63,11 +64,10 @@ public class Connect {
                 this.dataModel = new DataModel(new JSONObject((String)raw));
             }
 
-        } catch (FileNotFoundException | JSONException e) {
+        } catch (JSONException | IOException e) {
             e.printStackTrace();
             this.dataModel = new DataModel(defaultJsondata());
-        } catch (IOException e) {
-            e.printStackTrace();
+            this.sync();
         }
         System.out.println(this.dataModel.getJsonData());
     }
@@ -102,8 +102,10 @@ public class Connect {
          */
         ArrayList<T> res = new ArrayList<>();
         ArrayList<T> list = this.dataModel.getList(cls);
+        boolean check;
         for (T ele : list) {
-            if (predicate.apply(ele.get(key))) res.add(ele);
+            check = predicate.apply(ele.get(key));
+            if (check) res.add(ele);
         }
         return res;
     }
@@ -181,11 +183,11 @@ public class Connect {
     private JSONObject defaultJsondata() throws JSONException{
         InputStream data = context.getResources().openRawResource(R.raw.data);
         JSONObject res = new JSONObject();
-        res.put("user", new ArrayList<>());
-        res.put("item", new ArrayList<>());
+        res.put("user", new JSONArray());
+        res.put("item", new JSONArray());
         try {
-
             String str = new BufferedReader(new InputStreamReader(data)).readLine();
+            System.out.println(str);
             res = new JSONObject(str);
         } catch (IOException e) {
             e.printStackTrace();

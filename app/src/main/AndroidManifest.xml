@@ -44,6 +44,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.profile.ProfileFragment" />
+        <activity android:name=".ui.home.CategoryView" />
         <activity android:name=".ui.profile.Cart" />
         <activity android:name=".ui.search.SingleItem" />
         <activity android:name=".ui.maps.PinLocationMap" />

@@ -13,13 +13,16 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.farmfresh.R;
 import com.example.farmfresh.model.data.Connect;
 import com.example.farmfresh.model.data.data.Item;
+import com.example.farmfresh.model.data.enums.Category;
 import com.example.farmfresh.model.data.enums.Key;
 import com.example.farmfresh.model.data.State;
 import com.google.android.material.textfield.TextInputEditText;
@@ -39,6 +42,7 @@ public class AddItem extends FragmentActivity {
     private @Nullable String price;
     private @Nullable String quantity;
     private @Nullable String imageBase64;
+    private @Nullable Category category;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -54,6 +58,13 @@ public class AddItem extends FragmentActivity {
         final TextInputEditText quantityText = (TextInputEditText) findViewById(R.id.quantity);
         Button imgSelectBtn = (Button) findViewById(R.id.imageSelectBtn);
         Button addItemBtn = (Button) findViewById(R.id.addItemBtn);
+        final Spinner spinner = (Spinner) findViewById(R.id.itemCategory);
+        ArrayAdapter<CharSequence> adapter =
+                ArrayAdapter.createFromResource(this,
+                        R.array.category,
+                        android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
 
         imgSelectBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +85,7 @@ public class AddItem extends FragmentActivity {
                 itemName = itemNameText.getText().toString();
                 price = priceText.getText().toString();
                 quantity = quantityText.getText().toString();
+                category = Category.parseString(spinner.getSelectedItem().toString());
 
                 try {
                     Connect c = new Connect(AddItem.this);
@@ -84,6 +96,7 @@ public class AddItem extends FragmentActivity {
                         newItem.put(Key.Item.PRICE, price);
                         newItem.put(Key.Item.QUANTITY, quantity);
                         newItem.put(Key.Item.IMAGE_BASE64, imageBase64);
+                        newItem.put(Key.Item.CATEGORY, category);
                         System.out.println(newItem.toJson());
                         c.add(newItem, Item.class);
                         c.sync();

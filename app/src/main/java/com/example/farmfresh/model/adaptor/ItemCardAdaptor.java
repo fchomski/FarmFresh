@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -55,7 +56,7 @@ public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceH
 
     static class PlaceHolder extends RecyclerView.ViewHolder {
         // todo convert image.
-        private TextView itemName, itemPrice, itemSeller;
+        private TextView itemName, itemPrice, itemSeller, itemCategory;
         private ImageView itemImage;
 
         PlaceHolder(@NonNull View itemView) {
@@ -64,6 +65,7 @@ public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceH
             itemPrice = itemView.findViewById(R.id.cardItemPrice);
             itemSeller = itemView.findViewById(R.id.cardItemSeller);
             itemImage = itemView.findViewById(R.id.cardItemImage);
+            itemCategory = itemView.findViewById(R.id.cardItemCategory);
         }
 
         @RequiresApi(api = Build.VERSION_CODES.O)
@@ -71,6 +73,7 @@ public class ItemCardAdaptor extends RecyclerView.Adapter<ItemCardAdaptor.PlaceH
             itemName.setText((String) item.get(Key.Item.ITEM_NAME));
             itemPrice.setText((String) item.get(Key.Item.PRICE));
             itemSeller.setText((String) item.get(Key.Item.SELLER_NAME));
+            itemCategory.setText(item.get(Key.Item.CATEGORY).toString());
 
             String base64Image = (String) item.get(Key.Item.IMAGE_BASE64);
             byte[] byteArray = base64ImgToByteArray(base64Image);
