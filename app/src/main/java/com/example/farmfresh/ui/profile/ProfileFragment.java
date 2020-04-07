@@ -17,6 +17,8 @@ import com.example.farmfresh.model.data.State;
 import com.example.farmfresh.model.data.enums.UserType;
 import com.example.farmfresh.ui.maps.PinLocationMap;
 
+import java.util.stream.Stream;
+
 public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull final LayoutInflater inflater,
@@ -28,10 +30,12 @@ public class ProfileFragment extends Fragment {
         TextView userNameText = root.findViewById(R.id.userName);
         TextView usernameFull = root.findViewById(R.id.userFullName);
         TextView location = root.findViewById(R.id.locationText);
+        TextView userTypeView = root.findViewById(R.id.type);
       
         //Display user's selected username
         System.out.println(s.getUser());
         userNameText.setText((String) s.getUser().get(Key.User.USER_NAME));
+        userTypeView.setText(s.getUser().get(Key.User.USER_TYPE) == UserType.BUYER ? "BUYER" : "SELLER");
 
         //TODO: Change this to user's full name rather than username
         usernameFull.setText((String) s.getUser().get(Key.User.USER_NAME));

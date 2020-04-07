@@ -8,7 +8,8 @@
 
     <TextView
         android:layout_width="173dp"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/helpText"
         android:text="this is the help page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

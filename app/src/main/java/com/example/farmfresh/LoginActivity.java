@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         // set session state.
                         State s = State.getInstance();
-                        UserType ut = user.get(Key.User.USER_TYPE).equals("BUYER") ? UserType.BUYER : UserType.SELLER;
+                        UserType ut = (UserType) user.get(Key.User.USER_TYPE);
                         s.setUserType(ut);
                         s.setUser(user);
                         System.out.println("State ::");
